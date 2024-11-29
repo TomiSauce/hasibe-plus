@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print QR-Codes</title>
+    <link href="styles/qr-codes.css" rel="stylesheet">
+</head>
+<body>
+    <div class="no-print">
+        <p>Um die QR-Codes auszugrucken: Ctrl + P</p>
+    </div>
+    <div id="qr-codes-holder"></div>
+
+<!-- Scipts -->
+<!-- Librarys -->
+	<script src="js/lib/jquery.min.js" charset="utf-8"></script>
+	<script src="js/lib/qrcode.js" charset="utf-8"></script>
+
+<!-- Base Classes -->
+	<script src="js/LocalStorage.js" charset="utf-8"></script>
+	<script src="js/model/ORM.js" charset="utf-8"></script>
+	<script src="js/view/View.js" charset="utf-8"></script>
+
+<!-- Model Classes -->
+	<script src="js/model/Flag.js" charset="utf-8"></script>
+	<script src="js/model/Rank.js" charset="utf-8"></script>
+	<script src="js/model/Task.js" charset="utf-8"></script>
+	<script src="js/model/DefaultTask.js" charset="utf-8"></script>
+	<script src="js/model/User.js" charset="utf-8"></script>
+	<script src="js/model/Log.js" charset="utf-8"></script>
+
+<!-- View Classes -->
+	<script src="js/view/FlagView.js" charset="utf-8"></script>
+	<script src="js/view/UserView.js" charset="utf-8"></script>
+	<script src="js/view/RankView.js" charset="utf-8"></script>
+	<script src="js/view/TaskView.js" charset="utf-8"></script>
+	<script src="js/view/DataView.js" charset="utf-8"></script>
+	<script src="js/view/SearchView.js" charset="utf-8"></script>
+	<script src="js/view/SortView.js" charset="utf-8"></script>
+
+<!-- Controller Classes -->
+	<script src="js/controller/UserController.js" charset="utf-8"></script>
+	<script src="js/controller/TaskController.js" charset="utf-8"></script>
+	<script src="js/controller/DataController.js" charset="utf-8"></script>
+	<script src="js/controller/SearchController.js" charset="utf-8"></script>
+	<script src="js/controller/ImportController.js" charset="utf-8"></script>
+	<script src="js/controller/SortController.js" charset="utf-8"></script>
+
+<!-- Main JS File -->
+    <script src="js/qr-codes.js" charset="utf-8"></script>
+</body>
+</html>
