@@ -2,14 +2,44 @@
   "name": "hasibe-plus",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package:windows": "electron-packager . Hasibe-Plus --platform=win32 --arch=x64 --icon=public/assets/img/favicon.ico --out=dist --overwrite",
+    "package:linux": "electron-packager . Hasibe-Plus --platform=linux --arch=x64 --icon=public/assets/img/favicon.ico --out=dist --overwrite",
+    "package:mac": "electron-packager . Hasibe-Plus --platform=darwin --arch=x64 --icon=public/assets/img/favicon.icns --out=dist --overwrite",
+    "package:all": "electron-packager . Hasibe-Plus --platform=win32,linux,darwin --arch=x64 --icon=public/assets/img/favicon --out=dist --overwrite",
+    "build:windows": "electron-builder --windows",
+    "build:linux": "electron-builder --linux",
+    "build:mac": "electron-builder --mac",
+    "build:all": "electron-builder --windows --linux --mac"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GNU_GPL",
   "devDependencies": {
-    "electron": "^33.2.1"
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "ch.kodikas.hasibe",
+    "productName": "Hasibe Plus",
+    "linux": {
+      "icon": "public/assets/img/favicon.png",
+      "target": ["AppImage", "deb"],
+      "maintainer": "Luca Tomasi luca.tomasi@milweb.ch",
+      "category": "Utility"
+    },
+    "mac": {
+      "icon": "public/assets/img/favicon.icns",
+      "category": "public.app-category.utilities",
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "icon": "public/assets/img/favicon.ico",
+      "target": ["nsis", "zip"]
+    }
   }
 }
