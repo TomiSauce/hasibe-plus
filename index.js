@@ -152,8 +152,8 @@ function checkPrintersAndPrint() {
             // No printers available, fallback to PDF
             dialog.showMessageBox(mainWindow, {
                 type: 'warning',
-                title: 'No Printers Available',
-                message: 'No printers are available. The document will be saved as a PDF.',
+                title: 'Keine Drucker verfügbar',
+                message: 'Es sind keine Drucker verfügbar. Wird als PDF gespeichert.',
             }).then(() => {
                 savePageAsPDF();
             });

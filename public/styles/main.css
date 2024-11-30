@@ -4,7 +4,6 @@
 	src: url('../webfonts/Montserrat-VariableFont_wght.ttf');
 }
 
-
 /* Colors */
 :root {
 	--black-main: #222;
@@ -98,6 +97,13 @@ input[type="button"]:hover,
 	margin-left: 10px;
 }
 
+.btn-back {
+	background-color: var(--accent-v);
+	color: var(--white-main);
+	padding: 7px;
+    text-decoration: none;
+}
+
 
 /* Header */
 #header {
@@ -141,6 +147,16 @@ input[type="button"]:hover,
 }
 
 /* Section Search Bar */
+.btn-generate-qr-codes {
+	padding: 7px;
+	background-color: var(--blue-main);
+	color: var(--white-main);
+}
+
+.btn-generate-qr-codes i {
+	margin-right: 7px;
+}
+
 .input-bar-search {
 	width: -webkit-fill-available !important;
 }
