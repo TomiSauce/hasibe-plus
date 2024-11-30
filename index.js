@@ -20,11 +20,12 @@ const createMainWindow = () => {
         mainWindow = new BrowserWindow({
             width: 1600,
             height: 900,
+            titleBarStyle: 'default',
             webPreferences: {
                 contextIsolation: true, // Recommended for security
                 devTools: conf.dev,
                 // Disable Autofill related features if they are causing issues
-                // disableBlinkFeatures: 'Autofill',
+                disableBlinkFeatures: 'Autofill',
                 nodeIntegration: true,
                 preload: __dirname + '/preload.js',
             }
@@ -49,6 +50,11 @@ const createMainWindow = () => {
          * Load HTML file
          */
         mainWindow.loadFile(__dirname + '/public/index.html');
+
+        /**
+         * Allows the use of the camera
+         */
+        app.commandLine.appendSwitch('enable-experimental-web-platform-features');
 
         /**
          * Print page

@@ -28,18 +28,27 @@
     "productName": "Hasibe Plus",
     "linux": {
       "icon": "public/assets/img/favicon.png",
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "maintainer": "Luca Tomasi luca.tomasi@milweb.ch",
       "category": "Utility"
     },
     "mac": {
       "icon": "public/assets/img/favicon.icns",
       "category": "public.app-category.utilities",
-      "target": ["dmg", "zip"]
+      "target": [
+        "dmg",
+        "zip"
+      ]
     },
     "win": {
       "icon": "public/assets/img/favicon.ico",
-      "target": ["nsis", "zip"]
+      "target": [
+        "nsis",
+        "zip"
+      ]
     }
   }
 }

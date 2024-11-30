@@ -104,6 +104,10 @@ input[type="button"]:hover,
     text-decoration: none;
 }
 
+#camera {
+	display: none;
+}
+
 
 /* Header */
 #header {

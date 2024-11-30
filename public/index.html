@@ -23,6 +23,8 @@ O Update
 		<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 	</head>
 	<body>
+
+		<!-- Header -->
 		<div id="header">
 			<a href="index.html">
 				<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
@@ -34,6 +36,10 @@ O Update
 			</div>
 		</div>
 
+		<video id="camera" autoplay></video>
+		<canvas id="canvas" style="display:none;"></canvas>
+
+		<!-- Content -->
 		<div class="content">
 			<!-- User List  -->
 			<div class="section" id="section-user-list">
@@ -146,6 +152,7 @@ O Update
 	<script src="js/lib/notify.min.js" charset="utf-8"></script>
 	<script src="js/lib/jszip.js" charset="utf-8"></script>
 	<script src="js/lib/XLSX.js" charset="utf-8"></script>
+	<script src="js/lib/jsqr.min.js" charset="utf-8"></script>
 
 <!-- Base Classes -->
 	<script src="js/LocalStorage.js" charset="utf-8"></script>
@@ -179,4 +186,5 @@ O Update
 
 <!-- Main JS File -->
 	<script src="js/main.js" charset="utf-8"></script>
+	<script src="js/qr-scanner.js" charset="utf-8"></script>
 </html>
