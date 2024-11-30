@@ -89,7 +89,7 @@ class LocalStorage {
 
     static getStorageAvailable(forceRecalculation) {
         let availableKey = 'storageAvailable',
-            available = localStorage.getItem(availableKey);
+            available = Number(localStorage.getItem(availableKey));
         
         if (forceRecalculation || available == null) {
             var dataKey = 'AVAILABLE_DATA',
