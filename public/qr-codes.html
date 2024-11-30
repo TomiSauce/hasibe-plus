@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Print QR-Codes</title>
+    <link href="styles/main.css" rel="stylesheet">
     <link href="styles/qr-codes.css" rel="stylesheet">
 </head>
 <body>
     <div class="no-print">
-        <p>Um die QR-Codes auszugrucken: Ctrl + P</p>
+		<a class="btn-back" href="index.html">< Zurück</a>
+		<input type="button" id="btn-print" value="Drucken">
+		<input type="button" id="btn-save-to-pdf" value="Als PDF speichern">
     </div>
     <div id="qr-codes-holder"></div>
 

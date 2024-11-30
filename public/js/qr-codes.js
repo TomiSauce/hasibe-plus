@@ -2,6 +2,7 @@
 // Initialization
 //
 
+
 const objRelsORM = {
 	flagID: Flag,
 	logID: Log,
@@ -12,10 +13,12 @@ const objRelsORM = {
 
 ORM.setStorageAdapter(new LocalStorage());
 
-
 $(document).ready(() => {
     let users = User.getAll();
 
+    /**
+     * Generate QR-Code for each user
+     */
     for (const u of users) {
         $('#qr-codes-holder').append(
             '<div class="qr-code-outer">' +
@@ -33,4 +36,26 @@ $(document).ready(() => {
             correctLevel : QRCode.CorrectLevel.H
         });
     }
+
+    /**
+     * Print page
+     */
+    $('#btn-print').on('click', () => {
+        window.electronAPI.printDocument();
+    });
+
+    /**
+     * Save page to PDF
+     */
+    $('#btn-save-to-pdf').on('click', () => {
+        window.electronAPI.savePageAsPDF();
+    });
+
+    /**
+     * Logs status updated in the console (only dev)
+     */
+    window.electronAPI.onStatusUpdate((message) => {
+        console.log(message);
+    });
+
 });
