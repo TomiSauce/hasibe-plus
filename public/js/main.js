@@ -44,6 +44,8 @@ if (!Task.count()) {
 		{name: 'Kas Reinigung', minutes: null},
 		{name: 'Bewerbungsgespräch', minutes: null},
 		{name: 'Quali Gespräch', minutes: null},
+		{name: 'KP', minutes: null},
+		{name: 'ZSA', minutes: null},
 		{name: 'Krank im Zimmer', minutes: null}
 	];
 	

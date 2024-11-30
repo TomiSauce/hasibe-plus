@@ -30,12 +30,14 @@ class TaskController {
 			let defaultTask = DefaultTask.getAll()[0];
 			let oldTask = new Task(defaultTask.get('id'));
 			
-			defaultTask.set('taskID', inp).save();
-			
-			new Log(null, null, null, 'Der Standardauftrag wurde von "' + oldTask.get('name') + '" zu "' + new Task(Number(inp)).get('name') + '" geändert.').save();
-	
-			UserController.refreshCreateForm();
-			DataController.refresh();
+			if (defaultTask.set('taskID', inp).save()) {
+				View.success('Standardauftrag wurde festgelegt.');
+				new Log(null, null, null, 'Der Standardauftrag wurde von "' + oldTask.get('name') + '" zu "' + new Task(Number(inp)).get('name') + '" geändert.').save();
+				UserController.refreshCreateForm();
+				DataController.refresh();
+			} else {
+				View.error('Standardauftrag konnte nicht festgelegt werden.')
+			}
 		}
 	}
 

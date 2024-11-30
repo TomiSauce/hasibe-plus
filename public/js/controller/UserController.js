@@ -28,7 +28,7 @@ class UserController {
 			);
 			if (u.save() !== false) {
 				UserController.setTimeStarted(u);
-				View.success('AdA eingetragen');
+				View.success('AdA "' + u.get('rank').get('abbr') + ' ' + u.get('firstName') + ' ' + u.get('lastName') + '" eingetragen.');
 				UserView.clearCreateForm();
 				UserController.refreshTable();
 				new Log(null, u.get('id'), u.get('taskID'), 'Benutzer "' + inp.lastName + ', ' + inp.firstName + '" erstellt').save();
