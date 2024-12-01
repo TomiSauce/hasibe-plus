@@ -1,4 +1,4 @@
-const { app, BrowserWindow, session , ipcMain, dialog } = require('electron');
+const { app, BrowserWindow, session , ipcMain, dialog, shell } = require('electron');
 const fs = require('fs');
 
 const conf = {
@@ -78,6 +78,17 @@ const createMainWindow = () => {
         ipcMain.on('window-maximize', () => mainWindow.maximize());
         ipcMain.on('window-unmaximize', () => mainWindow.unmaximize());
         ipcMain.handle('window-is-maximized', () => mainWindow.isMaximized());
+
+        /**
+         * Intercept opening a new window and open domains in the default browser
+         */
+        mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+            if (!url.startsWith('file://')) {
+                shell.openExternal(url);
+                return { action: 'deny' };
+            }
+            return { action: 'allow' };
+        });
 
         /**
          * Open DevTools if in dev mode
