@@ -1,56 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Print QR-Codes</title>
-    <link href="styles/main.css" rel="stylesheet">
-    <link href="styles/qr-codes.css" rel="stylesheet">
-</head>
-<body>
-    <div class="no-print">
-		<a class="btn-back" href="index.html">&lt; Zurück</a>
-		<input type="button" id="btn-print" value="Drucken">
-		<input type="button" id="btn-save-to-pdf" value="Als PDF speichern">
-    </div>
-    <div id="qr-codes-holder"></div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Print QR-Codes</title>
+
+		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/qr-codes.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+		<link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
+		
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	</head>
+
+	<body>
+		<!-- Custom Title Bar -->
+		<div class="title-bar no-print">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
+
+		<!-- Content -->
+		<div class="no-print print-tool-bar">
+			<a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+			<input type="button" id="btn-print" value="Drucken">
+			<input type="button" id="btn-save-to-pdf" value="Als PDF speichern">
+		</div>
+		<div id="qr-codes-holder"></div>
 
 <!-- Scipts -->
 <!-- Librarys -->
-	<script src="js/lib/jquery.min.js" charset="utf-8"></script>
-	<script src="js/lib/qrcode.js" charset="utf-8"></script>
+		<script src="js/lib/jquery.min.js" charset="utf-8"></script>
+		<script src="js/lib/qrcode.js" charset="utf-8"></script>
 
 <!-- Base Classes -->
-	<script src="js/LocalStorage.js" charset="utf-8"></script>
-	<script src="js/model/ORM.js" charset="utf-8"></script>
-	<script src="js/view/View.js" charset="utf-8"></script>
+		<script src="js/LocalStorage.js" charset="utf-8"></script>
+		<script src="js/model/ORM.js" charset="utf-8"></script>
+		<script src="js/view/View.js" charset="utf-8"></script>
 
 <!-- Model Classes -->
-	<script src="js/model/Flag.js" charset="utf-8"></script>
-	<script src="js/model/Rank.js" charset="utf-8"></script>
-	<script src="js/model/Task.js" charset="utf-8"></script>
-	<script src="js/model/DefaultTask.js" charset="utf-8"></script>
-	<script src="js/model/User.js" charset="utf-8"></script>
-	<script src="js/model/Log.js" charset="utf-8"></script>
+		<script src="js/model/Flag.js" charset="utf-8"></script>
+		<script src="js/model/Rank.js" charset="utf-8"></script>
+		<script src="js/model/Task.js" charset="utf-8"></script>
+		<script src="js/model/DefaultTask.js" charset="utf-8"></script>
+		<script src="js/model/User.js" charset="utf-8"></script>
+		<script src="js/model/Log.js" charset="utf-8"></script>
 
 <!-- View Classes -->
-	<script src="js/view/FlagView.js" charset="utf-8"></script>
-	<script src="js/view/UserView.js" charset="utf-8"></script>
-	<script src="js/view/RankView.js" charset="utf-8"></script>
-	<script src="js/view/TaskView.js" charset="utf-8"></script>
-	<script src="js/view/DataView.js" charset="utf-8"></script>
-	<script src="js/view/SearchView.js" charset="utf-8"></script>
-	<script src="js/view/SortView.js" charset="utf-8"></script>
+		<script src="js/view/FlagView.js" charset="utf-8"></script>
+		<script src="js/view/UserView.js" charset="utf-8"></script>
+		<script src="js/view/RankView.js" charset="utf-8"></script>
+		<script src="js/view/TaskView.js" charset="utf-8"></script>
+		<script src="js/view/DataView.js" charset="utf-8"></script>
+		<script src="js/view/SearchView.js" charset="utf-8"></script>
+		<script src="js/view/SortView.js" charset="utf-8"></script>
 
 <!-- Controller Classes -->
-	<script src="js/controller/UserController.js" charset="utf-8"></script>
-	<script src="js/controller/TaskController.js" charset="utf-8"></script>
-	<script src="js/controller/DataController.js" charset="utf-8"></script>
-	<script src="js/controller/SearchController.js" charset="utf-8"></script>
-	<script src="js/controller/ImportController.js" charset="utf-8"></script>
-	<script src="js/controller/SortController.js" charset="utf-8"></script>
+		<script src="js/controller/UserController.js" charset="utf-8"></script>
+		<script src="js/controller/TaskController.js" charset="utf-8"></script>
+		<script src="js/controller/DataController.js" charset="utf-8"></script>
+		<script src="js/controller/SearchController.js" charset="utf-8"></script>
+		<script src="js/controller/ImportController.js" charset="utf-8"></script>
+		<script src="js/controller/SortController.js" charset="utf-8"></script>
 
 <!-- Main JS File -->
-    <script src="js/qr-codes.js" charset="utf-8"></script>
-</body>
+		<script src="js/qr-codes.js" charset="utf-8"></script>
+
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
+	</body>
 </html>

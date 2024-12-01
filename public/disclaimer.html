@@ -2,13 +2,32 @@
 <html lang="de" dir="ltr">
     <head>
         <meta charset="utf-8">
+        
         <title>Häsibe V8</title>
+
         <link href="styles/main.css" rel="stylesheet">
         <link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
 		<link href="styles/flag-icons.min.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     </head>
+
     <body>
+
+        <!-- Custom Title Bar -->
+		<div class="title-bar">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
+
+        <!-- Header -->
         <div id="header">
             <a href="index.html">
                 <img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
@@ -18,9 +37,11 @@
                 <a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
             </div>
         </div>
+
+        <!-- Content -->
         <div class="content">
             <div class="section-disclaimer">
-                <a class="btn-back" href="index.html">&lt; Zurück</a>
+                <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
             </div>
             <div class="section-disclaimer">
                 <h2>DISCLAIMER<span class="fi fi-gb"></span><span class="fi fi-us"></span></h2>
@@ -145,5 +166,9 @@
 			</div>
 			<div></div>
 		</div>
+
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
     </body>
 </html>

@@ -20,7 +20,7 @@ const createMainWindow = () => {
         mainWindow = new BrowserWindow({
             width: 1600,
             height: 900,
-            titleBarStyle: 'default',
+            titleBarStyle: 'hidden',
             webPreferences: {
                 contextIsolation: true, // Recommended for security
                 devTools: conf.dev,
@@ -70,15 +70,24 @@ const createMainWindow = () => {
             savePageAsPDF();
         })
 
+        /**
+         * Main window controlls
+         */
+        ipcMain.on('window-close', () => mainWindow.close());
+        ipcMain.on('window-minimize', () => mainWindow.minimize());
+        ipcMain.on('window-maximize', () => mainWindow.maximize());
+        ipcMain.on('window-unmaximize', () => mainWindow.unmaximize());
+        ipcMain.handle('window-is-maximized', () => mainWindow.isMaximized());
+
+        /**
+         * Open DevTools if in dev mode
+         */
+        if (conf.dev) mainWindow.webContents.openDevTools();
+
     } catch (e) {
         console.error('Error: could not create main window', e);
         app.quit();
     }
-
-    /**
-     * Open DevTools if in dev mode
-     */
-    if (conf.dev) mainWindow.webContents.openDevTools();
 
 }
 

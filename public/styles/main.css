@@ -98,9 +98,10 @@ input[type="button"]:hover,
 }
 
 .btn-back {
+	padding: 7px;
 	background-color: var(--accent-v);
 	color: var(--white-main);
-	padding: 7px;
+	cursor: pointer;
     text-decoration: none;
 }
 
@@ -113,11 +114,13 @@ input[type="button"]:hover,
 #header {
 	width: 100%;
 	padding: 16px 6vw;
+	margin-top: 50px;
 	background-color: var(--black-main);
 	border-bottom: 8px solid var(--accent-v);
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 }
 
 #header a {
@@ -190,7 +193,6 @@ input[type="button"]:hover,
 	padding-left: 8px;
 	border: none;
 	outline: none;
-	/* border-left: 4pt solid var(--gray-l-main); */
 	line-height: 20px;
 	border-radius: 1px;
 }

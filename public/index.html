@@ -16,13 +16,30 @@ O Update
 <html lang="de" dir="ltr">
 	<head>
 		<meta charset="utf-8">
+
 		<title>Häsibe V8</title>
+
 		<link href="styles/main.css" rel="stylesheet">
 		<link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
 		<link href="styles/flag-icons.min.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+
 		<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 	</head>
+
 	<body>
+
+		<!-- Custom Title Bar -->
+		<div class="title-bar">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
 
 		<!-- Header -->
 		<div id="header">
@@ -36,10 +53,9 @@ O Update
 			</div>
 		</div>
 
+		<!-- Content -->
 		<video id="camera" autoplay></video>
 		<canvas id="canvas" style="display:none;"></canvas>
-
-		<!-- Content -->
 		<div class="content">
 			<!-- User List  -->
 			<div class="section" id="section-user-list">
@@ -64,9 +80,7 @@ O Update
 						<div id="sortStatus">Status&nbsp;<i class="fa-solid fa-sort"></i></div>
 						<div></div>
 					</div>
-					<div id="user-list" class="table-body">
-						
-					</div>
+					<div id="user-list" class="table-body"></div>
 				</div>
 			</div>
 
@@ -144,47 +158,50 @@ O Update
 			</div>
 		</div>
 
-	</body>
-
 <!-- Scipts -->
 <!-- Librarys -->
-	<script src="js/lib/jquery.min.js" charset="utf-8"></script>
-	<script src="js/lib/notify.min.js" charset="utf-8"></script>
-	<script src="js/lib/jszip.js" charset="utf-8"></script>
-	<script src="js/lib/XLSX.js" charset="utf-8"></script>
-	<script src="js/lib/jsqr.min.js" charset="utf-8"></script>
+		<script src="js/lib/jquery.min.js" charset="utf-8"></script>
+		<script src="js/lib/notify.min.js" charset="utf-8"></script>
+		<script src="js/lib/jszip.js" charset="utf-8"></script>
+		<script src="js/lib/XLSX.js" charset="utf-8"></script>
+		<script src="js/lib/jsqr.min.js" charset="utf-8"></script>
 
 <!-- Base Classes -->
-	<script src="js/LocalStorage.js" charset="utf-8"></script>
-	<script src="js/model/ORM.js" charset="utf-8"></script>
-	<script src="js/view/View.js" charset="utf-8"></script>
+		<script src="js/LocalStorage.js" charset="utf-8"></script>
+		<script src="js/model/ORM.js" charset="utf-8"></script>
+		<script src="js/view/View.js" charset="utf-8"></script>
 
 <!-- Model Classes -->
-	<script src="js/model/Flag.js" charset="utf-8"></script>
-	<script src="js/model/Rank.js" charset="utf-8"></script>
-	<script src="js/model/Task.js" charset="utf-8"></script>
-	<script src="js/model/DefaultTask.js" charset="utf-8"></script>
-	<script src="js/model/User.js" charset="utf-8"></script>
-	<script src="js/model/Log.js" charset="utf-8"></script>
+		<script src="js/model/Flag.js" charset="utf-8"></script>
+		<script src="js/model/Rank.js" charset="utf-8"></script>
+		<script src="js/model/Task.js" charset="utf-8"></script>
+		<script src="js/model/DefaultTask.js" charset="utf-8"></script>
+		<script src="js/model/User.js" charset="utf-8"></script>
+		<script src="js/model/Log.js" charset="utf-8"></script>
 
 <!-- View Classes -->
-	<script src="js/view/FlagView.js" charset="utf-8"></script>
-	<script src="js/view/UserView.js" charset="utf-8"></script>
-	<script src="js/view/RankView.js" charset="utf-8"></script>
-	<script src="js/view/TaskView.js" charset="utf-8"></script>
-	<script src="js/view/DataView.js" charset="utf-8"></script>
-	<script src="js/view/SearchView.js" charset="utf-8"></script>
-	<script src="js/view/SortView.js" charset="utf-8"></script>
+		<script src="js/view/FlagView.js" charset="utf-8"></script>
+		<script src="js/view/UserView.js" charset="utf-8"></script>
+		<script src="js/view/RankView.js" charset="utf-8"></script>
+		<script src="js/view/TaskView.js" charset="utf-8"></script>
+		<script src="js/view/DataView.js" charset="utf-8"></script>
+		<script src="js/view/SearchView.js" charset="utf-8"></script>
+		<script src="js/view/SortView.js" charset="utf-8"></script>
 
 <!-- Controller Classes -->
-	<script src="js/controller/UserController.js" charset="utf-8"></script>
-	<script src="js/controller/TaskController.js" charset="utf-8"></script>
-	<script src="js/controller/DataController.js" charset="utf-8"></script>
-	<script src="js/controller/SearchController.js" charset="utf-8"></script>
-	<script src="js/controller/ImportController.js" charset="utf-8"></script>
-	<script src="js/controller/SortController.js" charset="utf-8"></script>
+		<script src="js/controller/UserController.js" charset="utf-8"></script>
+		<script src="js/controller/TaskController.js" charset="utf-8"></script>
+		<script src="js/controller/DataController.js" charset="utf-8"></script>
+		<script src="js/controller/SearchController.js" charset="utf-8"></script>
+		<script src="js/controller/ImportController.js" charset="utf-8"></script>
+		<script src="js/controller/SortController.js" charset="utf-8"></script>
 
 <!-- Main JS File -->
-	<script src="js/main.js" charset="utf-8"></script>
-	<script src="js/qr-scanner.js" charset="utf-8"></script>
+		<script src="js/main.js" charset="utf-8"></script>
+		<script src="js/qr-scanner.js" charset="utf-8"></script>
+
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
+	</body>
 </html>
