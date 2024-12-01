@@ -1,6 +1,6 @@
 const video = document.getElementById('camera');
 const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+const context = canvas.getContext('2d', { willReadFrequently: true });
 let qrScannerActive = false;
 
 async function startCamera() {
@@ -10,6 +10,7 @@ async function startCamera() {
 		video.play();
 		scanQRCode();
 	} catch (err) {
+		// todo handle error
 		console.error('Camera access denied:', err);
 	}
 }
