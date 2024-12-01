@@ -135,7 +135,7 @@ $(document).ready(() => {
 	$('#btnClearStorage').on('click', () => {
 		if (confirm('Sollen wirklich alle daten gelöscht werden. Diese könnne nicht wiederhergestellt werden.')) {
 			localStorage.clear();
-			$.notify('Alle Daten wurden gelöscht.', 'success');
+			View.success('Alle Daten wurden gelöscht.');
 			setTimeout(() => {location.reload()}, 2000);
 		}
 	});
