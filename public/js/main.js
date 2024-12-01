@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2024 Luca Tomasi
+ * Licensed under the MIT License. See LICENSE file for details.
+ */
 //
 // Initialization
 //
