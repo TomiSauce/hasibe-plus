@@ -8,6 +8,14 @@ class View {
 		$('#' + inpID).val(value).change();
 	}
 
+	static alert(msg) {
+		alert(msg);
+	}
+
+	static confirm(msg) {
+		return confirm(msg);
+	}
+
 	static error(msg, attachTo=null) {
 		if (config.sound) new Audio('./assets/audio/error.wav').play();
 		if (attachTo) {

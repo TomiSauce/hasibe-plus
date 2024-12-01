@@ -62,6 +62,12 @@ if (!DefaultTask.count()) {
 	new Log(null, null, dT.get('id'), 'Default Task "' + dT.name + '" gesetzt').save();
 }
 
+if (!SearchID.count()) {
+	let sID = new SearchID();
+	sID.save();
+	new Log(null, null, null, 'Seeded object for QR-Code searching').save();
+}
+
 if (!Rank.count()) {
 	let rankSeeds = [
 		'Rekr',

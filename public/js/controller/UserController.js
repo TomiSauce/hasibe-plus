@@ -37,13 +37,18 @@ class UserController {
 		}
 	}
 
-	static refreshTable() {
-		let param = View.getInpValue('inpSearch').toLowerCase(),
-			users = User.getAll();
-		
-		// Filter users matching search parameters
-		let userList = [];
-		if (param.length > 0) {
+	static searchUsers() {
+		let qrUserID = SearchID.getAll()[0].get('userID'),
+			param = View.getInpValue('inpSearch').toLowerCase();
+
+		if (qrUserID !== null) {
+			// Search user by scanned qr code
+			let user = new User(qrUserID);
+			if (!isNaN(user.get('id'))) return [user];			
+		} else if (param.length > 0) {
+			// Filter users matching search parameters
+			let users = User.getAll(),
+				out = [];
 			for (var key in users) {
 				if (Object.hasOwnProperty.call(users, key)) {
 					var user = users[key],
@@ -58,25 +63,29 @@ class UserController {
 						|| rank.toLowerCase().includes(param)
 						|| flag.toLowerCase().includes(param)
 						|| task.toLowerCase().includes(param)) {
-							userList.push(user);
+							out.push(user);
 					}
 				}
 			}
-		} else {
-			userList = users;
+			return out;
 		}
+		return User.getAll();
+	}
+
+	static refreshTable() {
+		let users = this.searchUsers();
 
 		// Calculating timer by task time limits
-		for (var user of userList) {
+		for (var user of users) {
 			let timeRemaining = this.getTimeLeft(user);
 			user.set('timeRemaining', timeRemaining);
 			if (timeRemaining < 0) View.warn('AdA "' + user.get('firstName') + ' ' + user.get('lastName') + '" ist zu spät');
 		}
 
 		// Sort users
-		if (localStorage.getItem('sortBy') !== null) userList = SortController.sortUsers(userList);
+		if (localStorage.getItem('sortBy') !== null) users = SortController.sortUsers(users);
 
-		UserView.renderTable(userList, Rank.getAll(), Task.getAll(), Flag.getAll(), Log.getAll());
+		UserView.renderTable(users, Rank.getAll(), Task.getAll(), Flag.getAll(), Log.getAll());
 	}
 
 	static delete(userID) {		
@@ -204,10 +213,4 @@ class UserController {
 		return (user.get('task').get('maxMinutes') * 60 * 1000) - (new Date().getTime() - user.get('taskStartedAt'));
 	}
 
-	// static sort(e) {
-	// 	console.log('TODO remove =======================================================================================');
-		
-	// 	if (e.target.id == '') return;
-	// 	let sortBy = e.target.id.split(/(?=[A-Z])/)[1].toLowerCase();
-	// }
 }
