@@ -155,6 +155,7 @@ $(document).ready(() => {
 	$('#btnAddUser').on('click', UserController.create);
 	$('#btnAddTask').on('click', TaskController.create);
 	$('#inpSearch').on('keyup', SearchController.search);
+	$('#inpSearch').on('focus', SearchController.search);
 	$('#btnDefaultTask').on('click', TaskController.setDefaultTask);
 
 });
