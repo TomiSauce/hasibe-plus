@@ -13,6 +13,7 @@ class SearchController {
 	static searchByID(userID) {
 		let searchID = SearchID.getAll()[0];
 		searchID.set('userID', userID).save();
+		UserController.refreshTable();
 	}
 
 }

@@ -7,6 +7,7 @@ class ScannerController {
     video = null;
     canvas = null;
     context = null;
+    scannedUIDs = [];
 
     async startCamera() {
         this.video = document.getElementById('camera');
@@ -99,19 +100,24 @@ class ScannerController {
             const code = jsQR(imageData.data, imageData.width, imageData.height);
             
             if (code) {
-                let id = code.data.substring(code.data.indexOf('/') + 1),
-                    user = new User(id);
-                    console.log(user,!isNaN(user.get('id')));
-                    
-                if (id.toString().length && !isNaN(user.get('id'))) {
-                    console.log('setting');
-                    
-                    // Set task of user to default task
-                    user.set('taskID', DefaultTask.getAll()[0].get('taskID')).save();
-                    // set user to be listed in the search list
-                    SearchController.searchByID(id);
-                }
+                let id = code.data.substring(code.data.indexOf('/') + 1);
+                if (!id.toString().length) return;
+
+                let user = new User(id);
+                id = user.get('id');
+                if (isNaN(id)) return;
+
+                let time = new Date().getTime();
+                if (this.scannedUIDs[id] !== undefined && time - this.scannedUIDs[id] < 5000) return;
+
+                // Set task of user to default task
+                user.set('taskID', DefaultTask.getAll()[0].get('taskID')).save();
+                // set user to be listed in the search list
+                SearchController.searchByID(id);
+
+                View.playSound('charge.mp3');
+                this.scannedUIDs[user.get('id')] = time;
             }
-        }, 100);
+        }, 200);
     }
 }

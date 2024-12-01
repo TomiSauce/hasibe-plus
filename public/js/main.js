@@ -66,6 +66,10 @@ if (!SearchID.count()) {
 	let sID = new SearchID();
 	sID.save();
 	new Log(null, null, null, 'Seeded object for QR-Code searching').save();
+} else {
+	try {
+		new SearchID(0).set('userID', null).save();
+	} catch (e) {}
 }
 
 if (!Rank.count()) {
@@ -142,7 +146,7 @@ $(document).ready(() => {
 		if (confirm('Sollen wirklich alle daten gelöscht werden. Diese könnne nicht wiederhergestellt werden.')) {
 			localStorage.clear();
 			View.success('Alle Daten wurden gelöscht.');
-			setTimeout(() => {location.reload()}, 2000);
+			setTimeout(() => {location.reload()}, 1000);
 		}
 	});
 

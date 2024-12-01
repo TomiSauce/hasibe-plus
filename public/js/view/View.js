@@ -43,6 +43,10 @@ class View {
 		}
 	}
 
+	static playSound(fileName) {
+		if (config.sound) new Audio('./assets/audio/' + fileName).play();
+	}
+
 	static #attachTo(msg, status, attachTo) {
 		$('#' + attachTo).notify(msg, status, {position: 'bottom left'});
 	}
