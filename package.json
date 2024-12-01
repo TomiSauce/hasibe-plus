@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "GNU_GPL",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^33.2.1",
     "electron-builder": "^25.1.8",
@@ -27,7 +27,7 @@
     "appId": "ch.kodikas.hasibe",
     "productName": "Hasibe Plus",
     "linux": {
-      "icon": "public/assets/img/favicon.png",
+      "icon": "public/assets/img/logo-icon-512x512.png",
       "target": [
         "AppImage",
         "deb"
