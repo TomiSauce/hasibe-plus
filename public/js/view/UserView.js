@@ -2,6 +2,7 @@ class UserView extends View {
 
     static refreshCreateForm(ranks, tasks) {
         $('#inpRank').append(RankView.generateSelectOptions(ranks));
+        $('#inpTask').empty();
         $('#inpTask').append(TaskView.generateSelectOptions(tasks, DefaultTask.getAll()[0].get('taskID')));
     }
 

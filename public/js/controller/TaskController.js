@@ -15,7 +15,9 @@ class TaskController {
 			if (t.save() !== false) {
 				View.success('Auftrag erstellt');
 				TaskView.clearCreateForm();
+				TaskView.refreshSetDefaultForm(Task.getAll(), DefaultTask.getAll()[0]);
 				UserController.refreshTable();
+				UserController.refreshCreateForm();
 				DataController.refresh();
 			}
 		}
