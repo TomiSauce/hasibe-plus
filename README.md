@@ -1,4 +1,20 @@
 # Häsibe+
+## Table of Contents
+1. [Deutsch](#deutsch)
+   - [Einführung](#einführung)
+   - [Benutzerhandbuch](#benutzerhandbuch)
+
+2. [English](#english)
+   - [Introduction](#introduction)
+   - [User Guide](#user-guide)
+
+3. [Français](#français)
+   - [Introduction](#introduction-1)
+   - [Guide de l'utilisateur](#guide-de-lutilisateur)
+
+4. [Italiano](#italiano)
+   - [Introduzione](#introduzione)
+   - [Manuale dell'utente](#manuale-dellutente)
 
 ## Deutsch
 **Häsibe+: Präzision und Produktivität für die moderne Schweizer Armee.**
