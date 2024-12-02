@@ -1,23 +1,19 @@
 {
   "name": "hasibe-plus",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the description todo thanks",
+  "keywords": [],
+  "author": "Luca Tomasi luca.tomasi@milweb.ch",
+  "license": "MIT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "package:windows": "electron-packager . Hasibe-Plus --platform=win32 --arch=x64 --icon=public/assets/img/favicon.ico --out=dist --overwrite",
-    "package:linux": "electron-packager . Hasibe-Plus --platform=linux --arch=x64 --icon=public/assets/img/favicon.ico --out=dist --overwrite",
-    "package:mac": "electron-packager . Hasibe-Plus --platform=darwin --arch=x64 --icon=public/assets/img/favicon.icns --out=dist --overwrite",
-    "package:all": "electron-packager . Hasibe-Plus --platform=win32,linux,darwin --arch=x64 --icon=public/assets/img/favicon --out=dist --overwrite",
-    "build:windows": "electron-builder --windows",
+    "build:windows": "electron-builder --win",
     "build:linux": "electron-builder --linux",
     "build:mac": "electron-builder --mac",
-    "build:all": "electron-builder --windows --linux --mac"
+    "build:all": "electron-builder --win --linux --mac"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
     "electron": "^33.2.1",
     "electron-builder": "^25.1.8",
@@ -25,28 +21,30 @@
   },
   "build": {
     "appId": "ch.kodikas.hasibe",
-    "productName": "Hasibe Plus",
+    "productName": "Häsibe Plus",
+    "files": [
+      "**/*",
+      "!dist/**/*",
+      "!.gitignore"
+    ],
     "linux": {
-      "icon": "public/assets/img/logo-icon-512x512.png",
-      "target": [
-        "AppImage",
-        "deb"
-      ],
       "maintainer": "Luca Tomasi luca.tomasi@milweb.ch",
-      "category": "Utility"
+      "icon": "public/assets/img/logo-icon-256x256.png",
+      "category": "Utility",
+      "target": [
+        "deb"
+      ]
     },
     "mac": {
       "icon": "public/assets/img/favicon.icns",
       "category": "public.app-category.utilities",
       "target": [
-        "dmg",
-        "zip"
+        "dmg"
       ]
     },
     "win": {
       "icon": "public/assets/img/favicon.ico",
       "target": [
-        "nsis",
         "zip"
       ]
     }

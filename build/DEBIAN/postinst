@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Ensure the chrome-sandbox binary has correct ownership and permissions
+CHROME_SANDBOX="/opt/Häsibe Plus/chrome-sandbox"
+
+if [ -f "$CHROME_SANDBOX" ]; then
+  # Set the correct ownership (root:root)
+  chown root:root "$CHROME_SANDBOX"
+  # Set the correct permissions (4755)
+  chmod 4755 "$CHROME_SANDBOX"
+fi
+
+exit 0
