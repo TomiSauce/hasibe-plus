@@ -52,17 +52,14 @@ class UserController {
 			for (var key in users) {
 				if (Object.hasOwnProperty.call(users, key)) {
 					var user = users[key],
-						driver = user.get('driver') || "",
-						rank = user.get('rank').get('abbr'),
-						flag = user.get('flag').get('text'),
-						task = user.get('task').get('name');
+						driver = user.get('driver') || "";
 						
 					if (user.get('lastName').toLowerCase().includes(param)
 						|| user.get('firstName').toLowerCase().includes(param)
 						|| driver.toLowerCase().includes(param)
-						|| rank.toLowerCase().includes(param)
-						|| flag.toLowerCase().includes(param)
-						|| task.toLowerCase().includes(param)) {
+						|| user.get('rank').get('abbr').toLowerCase().includes(param)
+						|| user.get('flag').get('text').toLowerCase().includes(param)
+						|| user.get('task').get('name').toLowerCase().includes(param)) {
 							out.push(user);
 					}
 				}
