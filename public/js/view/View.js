@@ -1,7 +1,7 @@
 class View {
 
 	static getInpValue(inpID) {
-		return $('#' + inpID).val();
+		return View.escapeHtml($('#' + inpID).val());
 	}
 
 	static setInpValue(inpID, value = '') {
@@ -67,6 +67,15 @@ class View {
 	static getReadableMinSec(time) {
 		let t = new Date(time);
 		return this.fTime(t.getMinutes()) + ':' + this.fTime(t.getSeconds());
+	}
+
+	static escapeHtml(input) {
+		return input
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#039;");
 	}
 
 }

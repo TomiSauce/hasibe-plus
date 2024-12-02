@@ -22,8 +22,8 @@ class ImportController {
 								let u = new User(),
 									name = user['Name / Vorname'].split(',');
 			
-								u.set('firstName', name[1].trim());
-								u.set('lastName', name[0].trim());
+								u.set('firstName', View.escapeHtml(name[1].trim()));
+								u.set('lastName', View.escapeHtml(name[0].trim()));
 								u.set('taskID', taskID);
 								u.set('flagID', flagID);
 									
