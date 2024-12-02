@@ -17,7 +17,7 @@ X setting a default task before importing
 X QR-Code 
 	X Print for each user
 	X Read and display user
-	X Read and set user task to default task
+	X Read and set user task to default task 
 X Update
 	X First Name
 	X Last name
@@ -31,10 +31,12 @@ O Fix build script
 	O Mac
 	O Win
 X protect from HTML Injections
-O fix scrollbar to be after the title 
+X fix scrollbar to be after the title bar
 O fix search button (remove)
 O add tutorial button
-O add button to show the camera feed 
+O add button to show the camera feed
+O add page user guid
+O check copyright on sounds
 -->
 
 <!DOCTYPE html>
@@ -66,121 +68,124 @@ O add button to show the camera feed
 			</div>
 		</div>
 
-		<!-- Header -->
-		<div id="header">
-			<a href="index.html">
-				<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
-			</a>
-			<div class="nav-outer">
-				<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
-				<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
-				<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+		<div id="page-holder">
+			<!-- Header -->
+			<div id="header">
+				<a href="index.html">
+					<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
+				</a>
+				<div class="nav-outer">
+					<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
+					<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
+					<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+				</div>
 			</div>
-		</div>
 
-		<!-- Content -->
-		<video id="camera" autoplay></video>
-		<canvas id="canvas" style="display:none;"></canvas>
-		<div class="content">
-			<!-- User List  -->
-			<div class="section" id="section-user-list">
-				<div class="section-header">
-					<h2>Liste AdAs</h2>
-					<div class="group-border">
-						<a class="btn-generate-qr-codes" href="qr-codes.html"><i class="fa-solid fa-qrcode"></i>QR-Codes drucken</a>
+			<!-- Content -->
+			<video id="camera" autoplay></video>
+			<canvas id="canvas" style="display:none;"></canvas>
+			<div class="content">
+				<!-- User List  -->
+				<div class="section" id="section-user-list">
+					<div class="section-header">
+						<h2>Liste AdAs</h2>
+						<div class="group-border">
+							<a class="btn-generate-qr-codes" href="qr-codes.html"><i class="fa-solid fa-qrcode"></i>QR-Codes drucken</a>
+						</div>
+					</div>
+					<div class="input-bar input-bar-search">
+						<div><input id="inpSearch" type="text" placeholder="Suchen..."></div>
+						<i class="btn-search fa-solid fa-magnifying-glass"></i>
+					</div>
+					<div class="table-outer">
+						<div class="table-header" id="user-list-header">
+							<div id="sortRank">Rang&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortLastName">Name&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortFirstName">Vorname&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortDriver">Fahrer&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortFlag">Flag&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortTask">Auftrag&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div id="sortStatus">Status&nbsp;<i class="fa-solid fa-sort"></i></div>
+							<div></div>
+						</div>
+						<div id="user-list" class="table-body"></div>
 					</div>
 				</div>
-				<div class="input-bar input-bar-search">
-					<div><input id="inpSearch" type="text" placeholder="Suchen..."></div>
-					<i class="btn-search fa-solid fa-magnifying-glass"></i>
-				</div>
-				<div class="table-outer">
-					<div class="table-header" id="user-list-header">
-						<div id="sortRank">Rang&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortLastName">Name&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortFirstName">Vorname&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortDriver">Fahrer&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortFlag">Flag&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortTask">Auftrag&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div id="sortStatus">Status&nbsp;<i class="fa-solid fa-sort"></i></div>
-						<div></div>
+
+				<!-- Create User -->
+				<div class="section add-user">
+					<div class="section-header">
+						<h2>AdA hinzufügen</h2>
+						<div class="group-border">
+							<p>Excel aus dem Milo importieren:&nbsp;</p>
+							<input id="inpImport" type="file" value="Importieren">
+						</div>
 					</div>
-					<div id="user-list" class="table-body"></div>
-				</div>
-			</div>
-
-			<!-- Create User -->
-			<div class="section add-user">
-				<div class="section-header">
-					<h2>AdA hinzufügen</h2>
-					<div class="group-border">
-						<p>Excel aus dem Milo importieren:&nbsp;</p>
-						<input id="inpImport" type="file" value="Importieren">
+					<div class="input-bar">
+						<div><select id="inpRank"></select></div>
+						<div><input id="inpLastName" type="text" placeholder="Name"></div>
+						<div><input id="inpFirstName" type="text" placeholder="Vorname"></div>
+						<div><input id="inpDriver" type="text" placeholder="Fahrer"></div>
+						<div><select id="inpTask"></select></div>
+						<div><input id="btnAddUser" type="button" value="Hinzufügen"></div>
+					</div>
+					<div class="input-bar-mask">
+						<div id="inpRankMask"></div>
+						<div id="inpLastNameMask"></div>
+						<div id="inpFirstNameMask"></div>
+						<div id="inpDriverMask"></div>
+						<div id="inpTaskMask"></div>
+						<div class="spacer"></div>
+						<div class="spacer"></div>
+						<div class="spacer"></div>
 					</div>
 				</div>
-				<div class="input-bar">
-					<div><select id="inpRank"></select></div>
-					<div><input id="inpLastName" type="text" placeholder="Name"></div>
-					<div><input id="inpFirstName" type="text" placeholder="Vorname"></div>
-					<div><input id="inpDriver" type="text" placeholder="Fahrer"></div>
-					<div><select id="inpTask"></select></div>
-					<div><input id="btnAddUser" type="button" value="Hinzufügen"></div>
-				</div>
-				<div class="input-bar-mask">
-					<div id="inpRankMask"></div>
-					<div id="inpLastNameMask"></div>
-					<div id="inpFirstNameMask"></div>
-					<div id="inpDriverMask"></div>
-					<div id="inpTaskMask"></div>
-					<div class="spacer"></div>
-					<div class="spacer"></div>
-					<div class="spacer"></div>
+
+				<!-- Create Task -->
+				<div class="section">
+					<h2>Auftrag hinzufügen</h2>
+					<div class="input-bar create-task">
+						<div><input id="inpTaskName" type="text" placeholder="Auftragsname"></div>
+						<div><input id="inpMinutes" type="number" placeholder="Max Zeit in Minuten"></div>
+						<div><input id="btnAddTask" type="button" value="Auftrag hinzufügen"></div>
+					</div>
+					<div class="input-bar-mask">
+						<div id="inpTaskNameMask"></div>
+						<div id="inpMaxMinutesMask"></div>
+						<div class="spacer"></div>
+						<div class="spacer"></div>
+						<div class="spacer"></div>
+					</div>
+					<h2>Standart Auftrag festlegen</h2>
+					<div class="input-bar">
+						<div><select id="inpDefaultTask"></select></div>
+						<div><input id="btnDefaultTask" type="button" value="Standart Setzen"></div>
+					</div>
+					<div class="input-bar-mask">
+						<div id="inpDefaultTaskMask"></div>
+						<div class="spacer"></div>
+					</div>
 				</div>
 			</div>
 
-			<!-- Create Task -->
-			<div class="section">
-				<h2>Auftrag hinzufügen</h2>
-				<div class="input-bar create-task">
-					<div><input id="inpTaskName" type="text" placeholder="Auftragsname"></div>
-					<div><input id="inpMinutes" type="number" placeholder="Max Zeit in Minuten"></div>
-					<div><input id="btnAddTask" type="button" value="Auftrag hinzufügen"></div>
-				</div>
-				<div class="input-bar-mask">
-					<div id="inpTaskNameMask"></div>
-					<div id="inpMaxMinutesMask"></div>
-					<div class="spacer"></div>
-					<div class="spacer"></div>
-					<div class="spacer"></div>
-				</div>
-				<h2>Standart Auftrag festlegen</h2>
-				<div class="input-bar">
-					<div><select id="inpDefaultTask"></select></div>
-					<div><input id="btnDefaultTask" type="button" value="Standart Setzen"></div>
-				</div>
-				<div class="input-bar-mask">
-					<div id="inpDefaultTaskMask"></div>
-					<div class="spacer"></div>
-				</div>
-			</div>
-		</div>
-
-		<div id="footer">
-			<div>
-				<p><a href="disclaimer.html">Disclaimer</a>&nbsp;&nbsp;<i class="fa fa-legal"></i></p>
-				<p><a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>&nbsp;&nbsp;<i class="fa fa-address-book"></i></p>
-				<p><a target="_blank" href="https://github.com/TomiSauce/hasibe">Download Source Code</a>&nbsp;&nbsp;<i class="fa fa-code"></i></p>
-				<p><a target="_blank" href="https://kodikas.ch/other/hasibe/">Tell me More</a>&nbsp;&nbsp;<i class="fa fa-info"></i></p>
-			</div>
-			<div>
-				<div><i class="fa fa-database" aria-hidden="true"></i></div>
+			<div id="footer">
 				<div>
-					<p>Data Usage</p>
-					<p id="data-usage-text">0.00 KB / 10 MB (0.00%)</p>
-					<p><progress id="data-usage-bar" value="1" max="100"></progress></p>
-					<p><input id="btnClearStorage" type="button" value="Alle Daten Löschen"></p>
+					<p><a href="disclaimer.html">Disclaimer</a>&nbsp;&nbsp;<i class="fa fa-legal"></i></p>
+					<p><a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>&nbsp;&nbsp;<i class="fa fa-address-book"></i></p>
+					<p><a target="_blank" href="https://github.com/TomiSauce/hasibe-plus">Download Source Code</a>&nbsp;&nbsp;<i class="fa fa-code"></i></p>
+					<p><a target="_blank" href="https://kodikas.ch/other/hasibe/">Tell me More</a>&nbsp;&nbsp;<i class="fa fa-info"></i></p>
+				</div>
+				<div>
+					<div><i class="fa fa-database" aria-hidden="true"></i></div>
+					<div>
+						<p>Data Usage</p>
+						<p id="data-usage-text">0.00 KB / 10 MB (0.00%)</p>
+						<p><progress id="data-usage-bar" value="1" max="100"></progress></p>
+						<p><input id="btnClearStorage" type="button" value="Alle Daten Löschen"></p>
+					</div>
 				</div>
 			</div>
+
 		</div>
 
 <!-- Scipts -->

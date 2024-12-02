@@ -32,13 +32,39 @@
 }
 
 body {
-	width: 100vw;
-	min-height: 100vh;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: Arial;
 	background-color: var(--black-l-main);
-	overflow-x: hidden;
+	overflow: hidden;
+}
+
+#page-holder {
+    width: 100%;
+	position: fixed;
+	top: 50px;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+/* Scroll Bar */
+#page-holder::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+#page-holder::-webkit-scrollbar-track {
+	background-color: var(--black-l-main);
+}
+
+#page-holder::-webkit-scrollbar-thumb {
+	background-color: var(--gray-main);
+}
+
+/* Thumb when hovered */
+#page-holder::-webkit-scrollbar-thumb:hover {
+	background-color: var(--white-main);
 }
 
 .content {
@@ -114,7 +140,6 @@ input[type="button"]:hover,
 #header {
 	width: 100%;
 	padding: 16px 6vw;
-	margin-top: 50px;
 	background-color: var(--black-main);
 	border-bottom: 8px solid var(--accent-v);
 	display: flex;

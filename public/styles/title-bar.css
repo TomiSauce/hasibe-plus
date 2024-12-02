@@ -11,6 +11,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1;
 }
 
 .title-left {
@@ -50,6 +51,8 @@
     color: var(--red-main);
 }
 
-.window-button:hover {
+.window-button:hover,
+.window-button:focus {
     color: var(--black-main);
+    outline: none;
 }
