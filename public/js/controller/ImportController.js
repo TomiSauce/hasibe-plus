@@ -17,18 +17,71 @@ class ImportController {
 								ranks = Rank.getAll(),
 								flagID = Flag.getAll()[0].get('id'),
 								taskID = DefaultTask.getAll()[0].get('taskID');
+
+							if (users.length == 0) {
+								View.alert('Die Datei scheint leer zu sein. Wenn dies nicht der fall ist öffnen Sie die Datei und speichern Sie sie unter einem neuem Namen.');
+								return;
+							}
+							let arrayKeys = [];
+							
+							if (users[0]['Name / Vorname'] !== undefined) {
+								// Import file language is German
+								arrayKeys = {
+									'name': 'Name / Vorname',
+									'rank': 'Grad Kurzform',
+									'lang': 'Sprache'
+								};
+							} else if (users[0]['Nom / Prénom:'] !== undefined) {
+								// Import file language is French
+								arrayKeys = {
+									'name': 'Nom / Prénom:',
+									'rank': 'Grade abrégé',
+									'lang': 'Langue'
+								};
+							} else if (users[0]['Nome / cognome'] !== undefined) {
+								// Import file language is Italian
+								arrayKeys = {
+									'name': 'Nome / cognome',
+									'rank': 'Grado abbreviato',
+									'lang': 'Lingua'
+								};
+							}
 			
 							for (let user of users) {
+								
 								let u = new User(),
-									name = user['Name / Vorname'].split(',');
-			
-								u.set('firstName', View.escapeHtml(name[1].trim()));
-								u.set('lastName', View.escapeHtml(name[0].trim()));
-								u.set('taskID', taskID);
-								u.set('flagID', flagID);
+									name = "";
+								try {
+									name = user[arrayKeys['name']].split(',');
+									u.set('firstName', View.escapeHtml(name[1].trim()));
+									u.set('lastName', View.escapeHtml(name[0].trim()));
+									u.set('taskID', taskID);
+									u.set('flagID', flagID);
+								} catch (e) {
+									View.error('Ungültiger Name für AdA auf Zeile: "' + (c+2) + '" ');
+									console.log(user);
 									
-								for (let rank of ranks) {
-									if (rank.get('abbr') == user['Grad Kurzform'].trim()) u.set('rankID', rank.get('id'));
+									return;
+								}
+
+								let rankSet = false;
+								try {
+									for (let rank of ranks) {
+										if (rank.get('abbr') == user[arrayKeys['rank']].trim()) {
+											u.set('rankID', rank.get('id'));
+											rankSet = true;
+											break;
+										};
+										
+									}
+								} catch (e) {
+									rankSet = false;
+								}
+
+								if (!rankSet) {
+									let newRank = new Rank();
+									newRank.set('abbr', user[arrayKeys['rank']]).save();
+									u.set('rankID', newRank.get('id'));
 								}
 			
 								u.save();

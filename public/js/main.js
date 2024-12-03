@@ -78,6 +78,7 @@ if (!SearchID.count()) {
 
 if (!Rank.count()) {
 	let rankSeeds = [
+		'Undefiniert',
 		'Rekr',
 		'Sdt',
 		'Gfr',
