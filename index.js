@@ -3,11 +3,11 @@
  * Licensed under the MIT License. See LICENSE file for details.
  */
 
-const { app, BrowserWindow, session , ipcMain, dialog, shell } = require('electron');
+const { app, BrowserWindow, session , ipcMain, dialog, shell , powerMonitor, systemPreferences } = require('electron');
 const fs = require('fs');
 
 const conf = {
-    dev: true,
+    dev: false,
     defaultFileSavePath: `${app.getPath('desktop')}/`
 }
 
@@ -29,8 +29,6 @@ const createMainWindow = () => {
             webPreferences: {
                 contextIsolation: true, // Recommended for security
                 devTools: conf.dev,
-                // Disable Autofill related features if they are causing issues
-                disableBlinkFeatures: 'Autofill',
                 nodeIntegration: true,
                 preload: __dirname + '/preload.js',
             }
@@ -38,7 +36,7 @@ const createMainWindow = () => {
         mainWindow.maximize();
 
         /**
-         * Set permissions on sources
+         * Define permissions on sources
          */
         session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
             const responseHeaders = {
@@ -60,6 +58,31 @@ const createMainWindow = () => {
          * Allows the use of the camera
          */
         app.commandLine.appendSwitch('enable-experimental-web-platform-features');
+
+        /**
+         * Handle turning odf the camera before device gets locked
+         */
+        systemPreferences.on('session-locked', () => {
+            console.log('info | device gets locked');
+            mainWindow.webContents.send('turn-off-cam');
+
+        });
+        powerMonitor.on('suspend', () => {
+            console.log('info | device gets suspended');
+            mainWindow.webContents.send('turn-off-cam');
+        });
+
+        /**
+         * Handle turning the camera back on when device unlocked
+         */
+        systemPreferences.on('session-unlocked', () => {
+            console.log('info | device woke up');
+            mainWindow.webContents.send('turn-on-cam');
+        });
+        powerMonitor.on('resume', () => {
+            console.log('info | device got unlocked');
+            mainWindow.webContents.send('turn-on-cam');
+        });
 
         /**
          * Print page

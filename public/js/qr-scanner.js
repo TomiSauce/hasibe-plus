@@ -6,3 +6,11 @@ $(document).ready(() => {
 	scanner = new ScannerController();
 	scanner.startCamera();
 });
+
+function stopCamera() {
+	scanner.stopCamera();
+}
+
+function startCamera() {
+	scanner.startCamera();
+}

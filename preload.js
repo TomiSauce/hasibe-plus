@@ -8,6 +8,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
     savePageAsPDF: () => ipcRenderer.send('savePageAsPDF'),
     getCurrentWindow: async () => { return await ipcRenderer.invoke('getCurrentWindow'); },
     onStatusUpdate: (callback) => ipcRenderer.on('log', (event, message) => callback(message)),
+    stopCamera: (callback) => ipcRenderer.on('turn-off-cam', (event, message) => callback(message)),
+    startCamera: (callback) => ipcRenderer.on('turn-on-cam', (event, message) => callback(message)),
 });
 
 contextBridge.exposeInMainWorld('windowControls', {
