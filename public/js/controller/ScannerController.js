@@ -11,7 +11,7 @@ class ScannerController {
 
     async startCamera() {
         this.video = document.getElementById('camera');
-        this.canvas = document.getElementById('canvas');
+        this.canvas = document.getElementById('camera-canvas');
         this.context = this.canvas.getContext('2d', { willReadFrequently: true });
         this.isScannerActive = false;
 

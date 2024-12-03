@@ -33,8 +33,7 @@ X protect from HTML Injections
 X fix scrollbar to be after the title bar
 O fix search button (remove)
 X add User Guid page
-O add button to show the camera feed
-O add page user guid
+X add button to show the camera feed
 O check copyright on sounds
 -->
 
@@ -81,14 +80,17 @@ O check copyright on sounds
 			</div>
 
 			<!-- Content -->
-			<video id="camera" autoplay></video>
-			<canvas id="canvas" style="display:none;"></canvas>
+			<div class="camera-holder">
+				<video id="camera" autoplay></video>
+				<canvas id="camera-canvas" style="display:none;"></canvas>
+			</div>
 			<div class="content">
 				<!-- User List  -->
 				<div class="section" id="section-user-list">
 					<div class="section-header">
 						<h2>Liste AdAs</h2>
 						<div class="group-border">
+							<input id="btn-toggle-cam-display"  type="button" value="Kamera anzeigen">
 							<a class="btn-generate-qr-codes" href="qr-codes.html"><i class="fa-solid fa-qrcode"></i>QR-Codes drucken</a>
 						</div>
 					</div>

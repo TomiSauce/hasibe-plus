@@ -187,6 +187,14 @@ input[type="button"]:hover,
 }
 
 /* Section Search Bar */
+.camera-holder {
+	width: fit-content;
+	margin: 50px auto;
+}
+#btn-toggle-cam-display {
+	margin-right: 10px;
+}
+
 .btn-generate-qr-codes {
 	padding: 7px;
 	background-color: var(--blue-main);

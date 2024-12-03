@@ -141,6 +141,7 @@ if (!Language.count()) {
 
 const config = {
 	sound: true,
+	video: false
 };
 
 $(document).ready(() => {
@@ -177,6 +178,22 @@ $(document).ready(() => {
 			localStorage.clear();
 			View.success('Alle Daten wurden gelöscht.');
 			setTimeout(() => {location.reload()}, 1000);
+		}
+	});
+
+	$('#btn-toggle-cam-display').on('click', () => {
+		if (config.video) {
+			console.log('hide');
+			
+			$('#btn-toggle-cam-display').text('Kamera einblenden');
+			$('#camera-canvas').hide();
+			config.video = false;
+		} else {
+			console.log('show');
+			
+			$('#btn-toggle-cam-display').text('Kamera ausblenden');
+			$('#camera-canvas').show();
+			config.video = true;
 		}
 	});
 
