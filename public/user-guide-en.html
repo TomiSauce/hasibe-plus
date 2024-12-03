@@ -1,0 +1,220 @@
+<!--
+Copyright (c) 2024 Luca Tomasi
+Licensed under the MIT License. See LICENSE file for details.
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Häsibe+ Benutzerhandbuch</title>
+
+		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+		<link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
+		<link href="styles/flag-icons.min.css" rel="stylesheet">
+
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	</head>
+
+	<body>
+
+		<!-- Custom Title Bar -->
+		<div class="title-bar no-print">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
+
+		<div id="page-holder">
+			<!-- Header -->
+			<div id="header">
+				<a href="index.html">
+					<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
+				</a>
+				<div class="nav-outer">
+					<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
+					<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
+					<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+				</div>
+			</div>
+
+			<!-- Content -->
+            <div class="content">
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+
+                <div class="section-disclaimer">
+                    <div>
+                        <a href="user-guide-de.html"><span class="fi fi-de"></span></a>
+                        <a href="user-guide-en.html"><span class="fi fi-gb"></span></a>
+                        <a href="user-guide-fr.html"><span class="fi fi-fr"></span></a>
+                        <a href="user-guide-it.html"><span class="fi fi-it"></span></a>
+                    </div>
+                </div>
+
+                <div class="section-disclaimer">
+
+                    <h2>English</h2>
+                    <h3>User Guide</h3>
+                    <p>Welcome to the <strong>Häsibe+</strong> User Guide. This provides a comprehensive overview of how to effectively set up, manage, and utilize the app for efficient personnel and task management within your Section, Platoon, or even company.</p>
+                    <h4>Table of Contents</h4>
+                    <ol>
+                        <li><a href="#1-download-and-installation">Download and Installation</a></li>
+                        <li><a href="#2-creating-tasks">Creating Tasks</a></li>
+                        <li><a href="#3-adding-personnel-adas">Adding Personnel (AdAs)</a>
+                            <ul>
+                                <li><a href="#31-import-from-file">Import from File</a></li>
+                                <li><a href="#32-manual-entry">Manual Entry</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#4-qr-code-functionality">QR Code Functionality</a></li>
+                        <li><a href="#5-searching-for-personnel">Searching for Personnel</a></li>
+                        <li><a href="#6-editing-personnel-information">Editing Personnel Information</a></li>
+                        <li><a href="#7-deleting-personnel-records">Deleting Personnel Records</a></li>
+                        <li><a href="#8-task-history">Task History</a></li>
+                        <li><a href="#9-audio-controls">Audio Controls</a></li>
+                        <li><a href="#10-data-deletion">Data Deletion</a></li>
+                        <li><a href="#11-troubleshooting">Troubleshooting</a></li>
+                    </ol>
+
+                    <h4 id="1-download-and-installation">1. Download and Installation</h4>
+                    <p>To begin using <strong>Häsibe+</strong>, download the appropriate version for your device or access the web version:</p>
+                    <ul>
+                        <li><strong>Desktop Version</strong>: Download the installer for your platform from <a target="_blank"href="https://github.com/TomiSauce/hasibe-plus/releases">here</a>.</li>
+                        <li><strong>Web Version</strong>: Navigate to <a target="_blank" href="https://hasibe-plus.kodikas.ch">Häsibe+ Web</a>.</li>
+                    </ul>
+                    <h5>Offline Functionality</h5>
+                    <ul>
+                        <li><strong>Desktop Application</strong>: Fully functional without an internet connection.</li>
+                        <li><strong>Web Version</strong>: Operates offline after the initial page load.</li>
+                    </ul>
+
+                    <h4 id="2-creating-tasks">2. Creating Tasks</h4>
+                    <ol>
+                        <li>Navigate to the <strong>"Auftrag hinzufügen"</strong> section.</li>
+                        <li>Provide a name for the task. The <strong>time</strong> field is optional but defines the number of minutes allowed to complete the task.</li>
+                        <li>If the time limit is exceeded before task completion, an alarm will be triggered to notify the user.</li>
+                    </ol>
+
+                    <h4 id="3-adding-personnel-adas">3. Adding Personnel (AdAs)</h4>
+                    <h5 id="31-import-from-file">3.1 Import from File</h5>
+                    <ol>
+                        <li>Export a personnel list from <strong>Mil-Office</strong>, ensuring that the data includes the rank, name, and optionally, the language.</li>
+                        <li>In the <strong>"Auftrag hinzufügen"</strong> section, set a default task that will be applied to all imported personnel.</li>
+                        <li>Click the <strong>Import</strong> button and select the file for import.</li>
+                    </ol>
+
+                    <h5 id="32-manual-entry">3.2 Manual Entry</h5>
+                    <ol>
+                        <li>To manually add personnel, navigate to the <strong>"AdA hinzufügen"</strong> section.</li>
+                        <li>Complete the required fields:
+                            <ul>
+                                <li>Rank</li>
+                                <li>First Name</li>
+                                <li>Last Name</li>
+                                <li>Task</li>
+                                <li><strong>Driver</strong> (optional)</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4 id="4-qr-code-functionality">4. QR Code Functionality</h4>
+                    <p><strong>Häsibe+</strong> offers the option to generate QR codes for each personnel member. This functionality helps with task assignment and verification:</p>
+                    <ol>
+                        <li>In the <strong>"Liste AdAs"</strong> section, click <strong>"QR-Codes drucken"</strong> to generate and print QR codes for your personnel.</li>
+                    </ol>
+                    <h5>Functionality</h5>
+                    <ul>
+                        <li>Scanning a QR code checks the individual into the holding area and automatically assigns them the previously selected default task.</li>
+                        <li>The default task can be changed at any time, providing flexibility in task management.</li>
+                    </ul>
+
+                    <h4 id="5-searching-for-personnel">5. Searching for Personnel</h4>
+                    <ol>
+                        <li>In the <strong>"Liste AdAs"</strong> section, type the name, rank, or other identifying details into the <strong>"Suchen..."</strong> search field.</li>
+                        <li>The search results will display matching personnel based on any attribute.</li>
+                    </ol>
+
+                    <h4 id="6-editing-personnel-information">6. Editing Personnel Information</h4>
+                    <ol>
+                        <li>In the <strong>"Liste AdAs"</strong> section, select the individual whose details you wish to update.</li>
+                        <li>Enter the new information for the selected field and press <strong>Enter</strong> to confirm the changes.</li>
+                        <li>The change will be applied immediately, and a notification will confirm the update.</li>
+                    </ol>
+
+                    <h4 id="7-deleting-personnel-records">7. Deleting Personnel Records</h4>
+                    <ol>
+                        <li>In the <strong>"Liste AdAs"</strong> section, click the <strong>trash icon</strong> next to the personnel record you wish to delete.</li>
+                        <li>This action is irreversible, and the personnel record will be permanently removed from the system.</li>
+                    </ol>
+
+                    <h4 id="8-task-history">8. Task History</h4>
+                    <ol>
+                        <li>In the <strong>"Liste AdAs"</strong> section, click the <strong>downward arrow icon</strong> next to the individual's name.</li>
+                        <li>The task history will be displayed, showing past assignments and their statuses.</li>
+                    </ol>
+
+                    <h4 id="9-audio-controls">9. Audio Controls</h4>
+                    <ol>
+                        <li>Click the <strong>audio icon</strong> in the top-right corner of the interface.</li>
+                        <li>You can enable or disable sound notifications at any time, depending on your preference.</li>
+                    </ol>
+
+                    <h4 id="10-data-deletion">10. Data Deletion</h4>
+                    <ol>
+                        <li>Click the <strong>"Alle Daten löschen"</strong> button in the footer of the app.</li>
+                        <li>For the web version, clearing the browser cache will also remove any stored data.</li>
+                    </ol>
+
+                    <h4 id="11-troubleshooting">11. Troubleshooting</h4>
+                    <h5>Issue: Import of personnel list fails</h5>
+                    <ul>
+                        <li><strong>Solution</strong>: Verify that the personnel list file is correctly formatted as a <code>.xlsx</code> file. Ensure all required fields (rank, name) are included.</li>
+                        <li><strong>Solution</strong>: Open the personnel file and save it under a new name, then try to import it again.</li>
+                    </ul>
+                    <h5>Issue: QR Code not scanning</h5>
+                    <ul>
+                        <li><strong>Solution</strong>: Ensure that you have a webcam connected and it is functioning properly.</li>
+                        <li><strong>Solution</strong>: Do not hold the QR code too close to the camera (press the button <strong>"Kamera feed anzeigen"</strong>).</li>
+                        <li><strong>Solution</strong>: Ensure the QR code is printed clearly and without distortion. Check that the scanning device is functioning properly and is connected.</li>
+                    </ul>
+
+                    <h5>Issue: Alarm not triggering for task timeout</h5>
+                    <p><strong>Solution</strong>: Double-check that the task has a defined time limit. Ensure that the alarm notifications are enabled (top right of the page).</p>
+
+                    <p>Thank you for using <strong>Häsibe+</strong>. For additional support or inquiries, please visit our <a target="_blank" href="https://kodikas.ch/contact">Support Page</a>.</p>
+
+                </div>
+
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+            </div>
+
+            <div id="footer">
+                <div>
+					<p><a href="disclaimer.html">Disclaimer</a>&nbsp;&nbsp;<i class="fa fa-legal"></i></p>
+					<p><a href="user-guide-de.html">Benutzerhandbuch</a>&nbsp;&nbsp;<i class="fa fa-book"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>&nbsp;&nbsp;<i class="fa fa-address-book"></i></p>
+                    <p><a target="_blank" href="https://github.com/TomiSauce/hasibe-plus">Download Source Code</a>&nbsp;&nbsp;<i class="fa fa-code"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/other/hasibe/">Tell me More</a>&nbsp;&nbsp;<i class="fa fa-info"></i></p>
+                </div>
+                <div></div>
+            </div>
+
+		</div>
+
+<!-- Scipts -->
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
+	</body>
+</html>

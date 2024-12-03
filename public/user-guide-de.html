@@ -1,0 +1,246 @@
+<!--
+Copyright (c) 2024 Luca Tomasi
+Licensed under the MIT License. See LICENSE file for details.
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Häsibe+ Benutzerhandbuch</title>
+
+		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+		<link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
+		<link href="styles/flag-icons.min.css" rel="stylesheet">
+
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	</head>
+
+	<body>
+
+		<!-- Custom Title Bar -->
+		<div class="title-bar no-print">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
+
+		<div id="page-holder">
+			<!-- Header -->
+			<div id="header">
+				<a href="index.html">
+					<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
+				</a>
+				<div class="nav-outer">
+					<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
+					<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
+					<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+				</div>
+			</div>
+
+			<!-- Content -->
+            <div class="content">
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+
+                <div class="section-disclaimer">
+                    <div>
+                        <a href="user-guide-de.html"><span class="fi fi-de"></span></a>
+                        <a href="user-guide-en.html"><span class="fi fi-gb"></span></a>
+                        <a href="user-guide-fr.html"><span class="fi fi-fr"></span></a>
+                        <a href="user-guide-it.html"><span class="fi fi-it"></span></a>
+                    </div>
+                </div>
+
+                <div class="section-disclaimer">
+
+                    <h2>Deutsch</h2>
+                    <h3>Benutzerhandbuch</h3>
+                    <p>Willkommen im <strong>Häsibe+</strong> Benutzerhandbuch. Dies bietet einen umfassenden Überblick darüber, wie die App effektiv eingerichtet, verwaltet und genutzt wird, um eine effiziente Personal- und Auftragsverwaltung innerhalb Ihrer Sektion, Ihres Zuges oder sogar Ihrer Kompanie zu ermöglichen.</p>
+                    <h4>Inhaltsverzeichnis</h4>
+                    <ol>
+                        <li><a href="#1-download-und-installation">Download und Installation</a></li>
+                        <li><a href="#2-erstellen-von-auftraegen">Erstellen von Aufträgen</a></li>
+                        <li>
+                            <a href="#3-hinzufuegen-von-personal-adas">Hinzufügen von Personal (AdAs)</a>
+                            <ol>
+                                <li><a href="#31-import-von-datei">Import von Datei</a></li>
+                                <li><a href="#32-manuelle-eingabe">Manuelle Eingabe</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#4-qr-code-funktionalitaet">QR-Code-Funktionalität</a></li>
+                        <li><a href="#5-personalsuche">Personalsuche</a></li>
+                        <li><a href="#6-bearbeiten-von-personalinformationen">Bearbeiten von Personalinformationen</a></li>
+                        <li><a href="#7-loeschen-von-personalaufzeichnungen">Löschen von Personalaufzeichnungen</a></li>
+                        <li><a href="#8-auftragshistorie">Auftragshistorie</a></li>
+                        <li><a href="#9-audioeinstellungen">Audioeinstellungen</a></li>
+                        <li><a href="#10-datenloeschung">Datenlöschung</a></li>
+                        <li><a href="#11-fehlerbehebung">Fehlerbehebung</a></li>
+                    </ol>
+
+                    <h4 id="1-download-und-installation">1. Download und Installation</h4>
+                    <p>
+                        Um <strong>Häsibe+</strong> zu nutzen, laden Sie die entsprechende Version für Ihr Gerät herunter oder greifen Sie auf die Webversion zu:
+                    </p>
+                    <ul>
+                        <li><strong>Desktop-Version</strong>: Laden Sie das Installationsprogramm für Ihre Plattform <a target="_blank"href="https://github.com/TomiSauce/hasibe-plus/releases">hier</a> herunter.</li>
+                        <li><strong>Web-Version</strong>: Navigieren Sie zu <a target="_blank"href="https://hasibe-plus.kodikas.ch">Häsibe+ Web</a>.</li>
+                    </ul>
+                    <h5>Offline-Funktionalität</h5>
+                    <ul>
+                        <li><strong>Desktop-Anwendung</strong>: Vollständig funktionsfähig ohne Internetverbindung.</li>
+                        <li><strong>Web-Version</strong>: Läuft offline nach dem ersten Laden der Seite.</li>
+                    </ul>
+
+                    <h4 id="2-erstellen-von-auftraegen">2. Erstellen von Aufträgen</h4>
+                    <p>
+                        Um Aufträge innerhalb von <strong>Häsibe+</strong> zu erstellen:
+                    </p>
+                    <ol>
+                        <li>Navigieren Sie zum Abschnitt <strong>"Auftrag hinzufügen"</strong>.</li>
+                        <li>Geben Sie einen Namen für den Auftrag ein. Das Feld <strong>Zeit</strong> ist optional, aber definiert die Anzahl der Minuten, die für die Erledigung des Auftrags zur Verfügung stehen.</li>
+                        <li>Wenn das Zeitlimit überschritten wird, bevor der Auftrag abgeschlossen ist, wird ein Alarm ausgelöst, um den Benutzer zu benachrichtigen.</li>
+                    </ol>
+
+                    <h4 id="3-hinzufuegen-von-personal-adas">3. Hinzufügen von Personal (AdAs)</h4>
+                    <h5 id="31-import-von-datei">3.1 Import von Datei</h5>
+                    <ol>
+                        <li>Exportieren Sie eine Personalliste aus <strong>Mil-Office</strong>, wobei die Daten den Rang, den Namen und optional die Sprache enthalten müssen.</li>
+                        <li>Im Abschnitt <strong>"Auftrag hinzufügen"</strong> legen Sie einen Standardauftrag fest, der auf alle importierten Mitarbeiter angewendet wird.</li>
+                        <li>Klicken Sie auf die Schaltfläche <strong>Importieren</strong> und wählen Sie die Datei zum Importieren aus.</li>
+                    </ol>
+                    <h5 id="32-manuelle-eingabe">3.2 Manuelle Eingabe</h5>
+                    <ol>
+                        <li>Um Personal manuell hinzuzufügen, navigieren Sie zum Abschnitt <strong>"AdA hinzufügen"</strong>.</li>
+                        <li>Füllen Sie die erforderlichen Felder aus:
+                            <ul>
+                                <li>Rang</li>
+                                <li>Vorname</li>
+                                <li>Nachname</li>
+                                <li>Auftrag</li>
+                                <li><strong>Fahrer</strong> (optional)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <h4 id="4-qr-code-funktionalitaet">4. QR-Code-Funktionalität</h4>
+                    <p>
+                        <strong>Häsibe+</strong> bietet die Möglichkeit, QR-Codes für jedes Personalmitglied zu generieren. Diese Funktionalität hilft bei der Auftragsvergabe und -verifizierung:
+                    </p>
+                    <ol>
+                        <li>Klicken Sie im Abschnitt <strong>"Liste AdAs"</strong> auf <strong>"QR-Codes drucken"</strong>, um QR-Codes für Ihr Personal zu generieren und zu drucken.</li>
+                    </ol>
+                    <h5>Funktionalität</h5>
+                    <ul>
+                        <li>Das Scannen eines QR-Codes prüft die Person im Aufenthaltsbereich ein und weist ihr automatisch den zuvor ausgewählten Standardauftrag zu.</li>
+                        <li>Der Standardauftrag kann jederzeit geändert werden, wodurch eine flexible Auftragsverwaltung möglich ist.</li>
+                    </ul>
+
+                    <h4 id="5-personalsuche">5. Personalsuche</h4>
+                    <p>
+                        Um eine bestimmte Person im System zu finden:
+                    </p>
+                    <ol>
+                        <li>Geben Sie im Abschnitt <strong>"Liste AdAs"</strong> den Namen, Rang oder andere Identifikationsdetails in das Suchfeld <strong>"Suchen..."</strong> ein.</li>
+                        <li>Die Suchergebnisse zeigen übereinstimmendes Personal basierend auf jedem Attribut an.</li>
+                    </ol>
+
+                    <h4 id="6-bearbeiten-von-personalinformationen">6. Bearbeiten von Personalinformationen</h4>
+                    <p>
+                        Um Personalangaben zu ändern:
+                    </p>
+                    <ol>
+                        <li>Wählen Sie im Abschnitt <strong>"Liste AdAs"</strong> die Person aus, deren Angaben Sie aktualisieren möchten.</li>
+                        <li>Geben Sie die neuen Informationen für das ausgewählte Feld ein und drücken Sie <strong>Enter</strong>, um die Änderungen zu bestätigen.</li>
+                        <li>Die Änderung wird sofort angewendet, und eine Benachrichtigung bestätigt die Aktualisierung.</li>
+                    </ol>
+
+                    <h4 id="7-loeschen-von-personalaufzeichnungen">7. Löschen von Personalaufzeichnungen</h4>
+                    <p>
+                        Um Personal dauerhaft aus der Liste zu entfernen:
+                    </p>
+                    <ol>
+                        <li>Klicken Sie im Abschnitt <strong>"Liste AdAs"</strong> auf das <strong>Papierkorb-Symbol</strong> neben der Personalaufzeichnung, die Sie löschen möchten.</li>
+                        <li>Diese Aktion ist irreversibel, und die Personalaufzeichnung wird dauerhaft aus dem System entfernt.</li>
+                    </ol>
+
+                    <h4 id="8-auftragshistorie">8. Auftragshistorie</h4>
+                    <p>
+                        Um die Historie der Aufträge für ein bestimmtes Personalmitglied anzusehen:
+                    </p>
+                    <ol>
+                        <li>Klicken Sie im Abschnitt <strong>"Liste AdAs"</strong> auf das <strong>nach unten zeigende Pfeilsymbol</strong> neben dem Namen der Person.</li>
+                        <li>Die Auftragsgeschichte wird angezeigt, die vergangene Zuordnungen und deren Status zeigt.</li>
+                    </ol>
+
+                    <h4 id="9-audioeinstellungen">9. Audioeinstellungen</h4>
+                    <p>
+                        <strong>Häsibe+</strong> beinhaltet eine Audiofunktion, um Benachrichtigungen und Alarme bereitzustellen. Um die Audioeinstellungen umzuschalten:
+                    </p>
+                    <ol>
+                        <li>Klicken Sie auf das <strong>Audio-Symbol</strong> in der oberen rechten Ecke der Benutzeroberfläche.</li>
+                        <li>Sie können Soundbenachrichtigungen jederzeit ein- oder ausschalten, je nach Ihren Vorlieben.</li>
+                    </ol>
+
+                    <h4 id="10-datenloeschung">10. Datenlöschung</h4>
+                    <p>
+                        Obwohl keine Daten außerhalb des verwendeten Geräts übertragen werden, empfehlen wir, alle gespeicherten Daten aus Sicherheitsgründen zu löschen, wenn diese nicht mehr benötigt werden:
+                    </p>
+                    <ol>
+                        <li>Klicken Sie auf die Schaltfläche <strong>"Alle Daten löschen"</strong> im Fußbereich der App.</li>
+                        <li>Für die Web-Version wird das Löschen des Browser-Cache ebenfalls alle gespeicherten Daten entfernen.</li>
+                    </ol>
+
+                    <h4 id="11-fehlerbehebung">11. Fehlerbehebung</h4>
+                    <h5>Problem: Der Import der Personalliste schlägt fehl</h5>
+                    <ul>
+                        <li><strong>Lösung</strong>: Überprüfen Sie, ob die Personalliste korrekt als <code>.xlsx</code>-Datei formatiert ist. Stellen Sie sicher, dass alle erforderlichen Felder (Rang, Name) enthalten sind.</li>
+                        <li><strong>Lösung</strong>: Öffnen Sie die Personaldatei, speichern Sie sie unter einem neuen Namen und versuchen Sie, sie erneut zu importieren.</li>
+                    </ul>
+                    
+                    <h5>Problem: QR-Code wird nicht gescannt</h5>
+                    <ul>
+                        <li><strong>Lösung</strong>: Stellen Sie sicher, dass eine Webcam angeschlossen und funktionsfähig ist.</li>
+                        <li><strong>Lösung</strong>: Halten Sie den QR-Code nicht zu nahe an die Kamera (drücken Sie die Schaltfläche <strong>"Kamera-Feed anzeigen"</strong>).</li>
+                        <li><strong>Lösung</strong>: Stellen Sie sicher, dass der QR-Code klar und ohne Verzerrung gedruckt ist. Überprüfen Sie, ob das Scangerät ordnungsgemäß funktioniert und verbunden ist.</li>
+                    </ul>
+
+                    <h5>Problem: Alarm wird nicht bei Auftragsüberschreitung ausgelöst</h5>
+                    <ul>
+                        <li><strong>Lösung</strong>: Überprüfen Sie, ob für den Auftrag ein Zeitlimit festgelegt wurde. Stellen Sie sicher, dass die Alarmbenachrichtigungen aktiviert sind (oben rechts auf der Seite).</li>
+                    </ul>
+
+                    <p>Vielen Dank, dass Sie <strong>Häsibe+</strong> verwenden. Für zusätzliche Unterstützung oder Anfragen besuchen Sie bitte unsere <a target="_blank"href="https://kodikas.ch/contact">Support-Seite</a>.</p>
+                </div>
+
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+            </div>
+
+            <div id="footer">
+                <div>
+					<p><a href="disclaimer.html">Disclaimer</a>&nbsp;&nbsp;<i class="fa fa-legal"></i></p>
+					<p><a href="user-guide-de.html">Benutzerhandbuch</a>&nbsp;&nbsp;<i class="fa fa-book"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>&nbsp;&nbsp;<i class="fa fa-address-book"></i></p>
+                    <p><a target="_blank" href="https://github.com/TomiSauce/hasibe-plus">Download Source Code</a>&nbsp;&nbsp;<i class="fa fa-code"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/other/hasibe/">Tell me More</a>&nbsp;&nbsp;<i class="fa fa-info"></i></p>
+                </div>
+                <div></div>
+            </div>
+
+		</div>
+
+<!-- Scipts -->
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
+	</body>
+</html>

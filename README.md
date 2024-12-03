@@ -140,6 +140,7 @@ Obwohl keine Daten außerhalb des verwendeten Geräts übertragen werden, empfeh
 
 ##### Problem: Der Import der Personalliste schlägt fehl
 - **Lösung**: Überprüfen Sie, ob die Personalliste korrekt als `.xlsx`-Datei formatiert ist. Stellen Sie sicher, dass alle erforderlichen Felder (Rang, Name) enthalten sind.
+- **Lösung**: Öffnen Sie die Personaldatei, speichern Sie sie unter einem neuen Namen und versuchen Sie, sie erneut zu importieren.
 
 ##### Problem: QR-Code wird nicht gescannt
 - **Lösung**: Stellen Sie sicher, dass eine Webcam angeschlossen und funktionsfähig ist.
@@ -277,6 +278,7 @@ Although no data is transmitted outside the device you are using, we recommend d
 
 ##### Issue: Import of personnel list fails
 - **Solution**: Verify that the personnel list file is correctly formatted as a `.xlsx` file. Ensure all required fields (rank, name) are included.
+- **Solution**: Open the personel file and save it under a new name, them try to import it again.
 
 ##### Issue: QR Code not scanning
 - **Solution**: Ensure that you have a web cam connected and it is functioning properly
@@ -414,6 +416,8 @@ Bien qu'aucune donnée ne soit transmise en dehors de l'appareil que vous utilis
 
 ##### Problème : L'importation de la liste de personnel échoue
 - **Solution** : Vérifiez que le fichier de la liste de personnel est correctement formaté en tant que fichier `.xlsx`. Assurez-vous que tous les champs requis (grade, nom) sont inclus.
+- **Solution** : Ouvrez le fichier du personnel, enregistrez-le sous un nouveau nom, puis essayez de l'importer à nouveau.
+
 
 ##### Problème : Le QR Code ne se scanne pas
 - **Solution** : Assurez-vous qu'une webcam est connectée et fonctionne correctement.
@@ -549,6 +553,7 @@ Anche se i dati non vengono trasferiti al di fuori del dispositivo utilizzato, c
 
 ##### Problema: Il caricamento della lista del personale non riesce
 - **Soluzione**: Verifica che la lista del personale sia formattata correttamente come file `.xlsx`. Assicurati che tutti i campi richiesti (grado, nome) siano presenti.
+- **Soluzione**: Apri il file del personale, salvalo con un nuovo nome, quindi prova a importarlo di nuovo.
 
 ##### Problema: Il codice QR non viene scansionato
 - **Soluzione**: Assicurati che una webcam sia collegata e funzionante.

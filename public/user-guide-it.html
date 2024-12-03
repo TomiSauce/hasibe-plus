@@ -1,0 +1,230 @@
+<!--
+Copyright (c) 2024 Luca Tomasi
+Licensed under the MIT License. See LICENSE file for details.
+-->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Häsibe+ Benutzerhandbuch</title>
+
+		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/title-bar.css" rel="stylesheet">
+		<link href="styles/fontawesome-6.5.1.min.css" rel="stylesheet">
+		<link href="styles/flag-icons.min.css" rel="stylesheet">
+
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	</head>
+
+	<body>
+
+		<!-- Custom Title Bar -->
+		<div class="title-bar no-print">
+			<div class="title-left">
+				<div class="app-name">Häsibe+</div>
+			</div>
+			<div class="title-right">
+				<button id="minimize" class="window-button"><i class="fa fa-xs fa-window-minimize" aria-hidden="true"></i></button>
+				<button id="maximize" class="window-button"><i class="fa fa-xs fa-window-maximize" aria-hidden="true"></i></button>
+				<button id="close" class="window-button"><i class="fa fa-xs fa-times" aria-hidden="true"></i></button>
+			</div>
+		</div>
+
+		<div id="page-holder">
+			<!-- Header -->
+			<div id="header">
+				<a href="index.html">
+					<img class="logo" src="assets/img/logo-hasibe-plus-full.png" alt="banner">
+				</a>
+				<div class="nav-outer">
+					<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
+					<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
+					<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+				</div>
+			</div>
+
+			<!-- Content -->
+            <div class="content">
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+
+                <div class="section-disclaimer">
+                    <div>
+                        <a href="user-guide-de.html"><span class="fi fi-de"></span></a>
+                        <a href="user-guide-en.html"><span class="fi fi-gb"></span></a>
+                        <a href="user-guide-fr.html"><span class="fi fi-fr"></span></a>
+                        <a href="user-guide-it.html"><span class="fi fi-it"></span></a>
+                    </div>
+                </div>
+
+                <div class="section-disclaimer">
+                    
+					<h2>Italiano</h2>
+					<h3>Manuale dell'utente</h3>
+					<p>Benvenuto nel manuale dell'utente di <strong>Häsibe+</strong>. Questo manuale offre una panoramica completa su come configurare, gestire e utilizzare l'app in modo efficace, per consentire una gestione efficiente del personale e degli incarichi all'interno della tua sezione, del tuo plotone o addirittura della tua compagnia.</p>
+
+					<h4>Indice</h4>
+					<ol>
+						<li><a href="#1-download-e-installazione">Download e Installazione</a></li>
+						<li><a href="#2-creazione-di-incarichi">Creazione di incarichi</a></li>
+						<li>
+							<a href="#3-aggiunta-di-personale-adas">Aggiunta di personale (AdAs)</a>
+							<ul>
+								<li><a href="#31-importazione-da-file">3.1 Importazione da file</a></li>
+								<li><a href="#32-inserimento-manuale">3.2 Inserimento manuale</a></li>
+							</ul>
+						</li>
+						<li><a href="#4-funzionalita-qr-code">Funzionalità QR Code</a></li>
+						<li><a href="#5-ricerca-del-personale">Ricerca del personale</a></li>
+						<li><a href="#6-modifica-delle-informazioni-del-personale">Modifica delle informazioni del personale</a></li>
+						<li><a href="#7-eliminazione-dei-record-del-personale">Eliminazione dei record del personale</a></li>
+						<li><a href="#8-storico-incarichi">Storico incarichi</a></li>
+						<li><a href="#9-impostazioni-audio">Impostazioni audio</a></li>
+						<li><a href="#10-cancellazione-dei-dati">Cancellazione dei dati</a></li>
+						<li><a href="#11-risoluzione-dei-problemi">Risoluzione dei problemi</a></li>
+					</ol>
+
+					<h4 id="1-download-e-installazione">1. Download e Installazione</h4>
+					<p>Per utilizzare <strong>Häsibe+</strong>, scarica la versione corrispondente per il tuo dispositivo o accedi alla versione web:</p>
+					<ul>
+						<li><strong>Versione Desktop</strong>: Scarica il programma di installazione per la tua piattaforma <a target="_blank"href="https://github.com/TomiSauce/hasibe-plus/releases">qui</a>.</li>
+						<li><strong>Versione Web</strong>: Accedi a <a target="_blank"href="https://hasibe-plus.kodikas.ch">Häsibe+ Web</a>.</li>
+					</ul>
+					<h5>Funzionalità Offline</h5>
+					<ul>
+						<li><strong>Applicazione Desktop</strong>: Completamente funzionale senza connessione a Internet.</li>
+						<li><strong>Versione Web</strong>: Funziona offline dopo il primo caricamento della pagina.</li>
+					</ul>
+
+					<h4 id="2-creazione-di-incarichi">2. Creazione di incarichi</h4>
+					<p>Per creare incarichi all'interno di <strong>Häsibe+</strong>:</p>
+					<ol>
+						<li>Vai alla sezione <strong>"Aggiungi incarico"</strong>.</li>
+						<li>Inserisci un nome per l'incarico. Il campo <strong>Tempo</strong> è opzionale, ma definisce il numero di minuti disponibili per completare l'incarico.</li>
+						<li>Se il limite di tempo viene superato prima che l'incarico venga completato, verrà attivato un allarme per avvisare l'utente.</li>
+					</ol>
+
+					<h4 id="3-aggiunta-di-personale-adas">3. Aggiunta di personale (AdAs)</h4>
+					<h5 id="31-importazione-da-file">3.1 Importazione da file</h5>
+					<ol>
+						<li>Esporta un elenco del personale da <strong>Mil-Office</strong>, assicurandoti che i dati includano il grado, il nome e facoltativamente la lingua.</li>
+						<li>Nella sezione <strong>"Aggiungi incarico"</strong>, imposta un incarico predefinito che verrà applicato a tutti i dipendenti importati.</li>
+						<li>Fai clic sul pulsante <strong>Importa</strong> e seleziona il file da importare.</li>
+					</ol>
+					<h5 id="32-inserimento-manuale">3.2 Inserimento manuale</h5>
+					<ol>
+						<li>Per aggiungere manualmente il personale, vai alla sezione <strong>"Aggiungi AdA"</strong>.</li>
+						<li>Completa i campi obbligatori:
+							<ul>
+								<li>Grado</li>
+								<li>Nome</li>
+								<li>Cognome</li>
+								<li>Incarico</li>
+								<li><strong>Autista</strong> (opzionale)</li>
+							</ul>
+						</li>
+					</ol>
+
+					<h4 id="4-funzionalita-qr-code">4. Funzionalità QR Code</h4>
+					<p><strong>Häsibe+</strong> consente di generare codici QR per ogni membro del personale. Questa funzionalità aiuta nell'assegnazione e verifica degli incarichi:</p>
+					<ol>
+						<li>Nella sezione <strong>"Lista AdAs"</strong>, fai clic su <strong>"Stampa QR Code"</strong> per generare e stampare i codici QR per il tuo personale.</li>
+					</ol>
+					<h5>Funzionalità</h5>
+					<ul>
+						<li>La scansione di un codice QR registra la persona nell'area di lavoro e le assegna automaticamente l'incarico predefinito selezionato in precedenza.</li>
+						<li>L'incarico predefinito può essere modificato in qualsiasi momento, consentendo una gestione flessibile degli incarichi.</li>
+					</ul>
+
+					<h4 id="5-ricerca-del-personale">5. Ricerca del personale</h4>
+					<p>Per trovare una persona specifica nel sistema:</p>
+					<ol>
+						<li>Nella sezione <strong>"Lista AdAs"</strong>, inserisci il nome, il grado o altri dettagli identificativi nel campo di ricerca <strong>"Cerca..."</strong>.</li>
+						<li>I risultati della ricerca mostreranno il personale corrispondente a ciascun attributo.</li>
+					</ol>
+
+					<h4 id="6-modifica-delle-informazioni-del-personale">6. Modifica delle informazioni del personale</h4>
+					<p>Per modificare i dati di un dipendente:</p>
+					<ol>
+						<li>Seleziona nella sezione <strong>"Lista AdAs"</strong> la persona i cui dati vuoi aggiornare.</li>
+						<li>Inserisci le nuove informazioni nei campi selezionati e premi <strong>Invio</strong> per confermare le modifiche.</li>
+						<li>La modifica verrà applicata immediatamente e verrà visualizzata una notifica di conferma.</li>
+					</ol>
+
+					<h4 id="7-eliminazione-dei-record-del-personale">7. Eliminazione dei record del personale</h4>
+					<p>Per rimuovere definitivamente il personale dalla lista:</p>
+					<ol>
+						<li>Fai clic sull'icona del <strong>Cestino</strong> accanto al record del personale che desideri eliminare nella sezione <strong>"Lista AdAs"</strong>.</li>
+						<li>Questa azione è irreversibile e il record verrà rimosso permanentemente dal sistema.</li>
+					</ol>
+
+					<h4 id="8-storico-incarichi">8. Storico incarichi</h4>
+					<p>Per visualizzare la cronologia degli incarichi di un determinato membro del personale:</p>
+					<ol>
+						<li>Nella sezione <strong>"Lista AdAs"</strong>, fai clic sull'icona della freccia <strong>verso il basso</strong> accanto al nome della persona.</li>
+						<li>Viene visualizzato lo storico degli incarichi, mostrando gli incarichi passati e i relativi stati.</li>
+					</ol>
+
+					<h4 id="9-impostazioni-audio">9. Impostazioni audio</h4>
+					<p><strong>Häsibe+</strong> include una funzionalità audio per fornire notifiche e allarmi. Per modificare le impostazioni audio:</p>
+					<ol>
+						<li>Fai clic sull'icona <strong>Audio</strong> nell'angolo in alto a destra dell'interfaccia.</li>
+						<li>Puoi attivare o disattivare le notifiche sonore in qualsiasi momento, a seconda delle tue preferenze.</li>
+					</ol>
+
+					<h4 id="10-cancellazione-dei-dati">10. Cancellazione dei dati</h4>
+					<p>Anche se i dati non vengono trasferiti al di fuori del dispositivo utilizzato, consigliamo di cancellare tutti i dati salvati per motivi di sicurezza quando non sono più necessari:</p>
+					<ol>
+						<li>Fai clic sul pulsante <strong>"Elimina tutti i dati"</strong> nel footer dell'app.</li>
+						<li>Per la versione Web, la cancellazione della cache del browser rimuoverà anche tutti i dati salvati.</li>
+					</ol>
+
+					<h4 id="11-risoluzione-dei-problemi">11. Risoluzione dei problemi</h4>
+					<h5>Problema: Il caricamento della lista del personale non riesce</h5>
+					<ul>
+						<li><strong>Soluzione</strong>: Verifica che la lista del personale sia formattata correttamente come file <code>.xlsx</code>. Assicurati che tutti i campi richiesti (grado, nome) siano presenti.</li>
+						<li><strong>Soluzione</strong>: Apri il file del personale, salvalo con un nuovo nome, quindi prova a importarlo di nuovo.</li>
+					</ul>
+					<h5>Problema: Il codice QR non viene scansionato</h5>
+					<ul>
+						<li><strong>Soluzione</strong>: Assicurati che una webcam sia collegata e funzionante.</li>
+						<li><strong>Soluzione</strong>: Non avvicinare troppo il codice QR alla fotocamera (premi il pulsante <strong>"Mostra feed della fotocamera"</strong>).</li>
+						<li><strong>Soluzione</strong>: Assicurati che il codice QR sia chiaro e senza distorsioni. Verifica che il dispositivo di scansione funzioni correttamente e sia connesso.</li>
+					</ul>
+					<h5>Problema: L'allarme non viene attivato quando il limite di tempo viene superato</h5>
+					<ul>
+						<li><strong>Soluzione</strong>: Verifica che un limite di tempo sia stato impostato per l'incarico.</li>
+						<li><strong>Soluzione</strong>: Assicurati che le notifiche di allarme siano attivate (in alto a destra nella pagina).</li>
+					</ul>
+
+					<p>Grazie per aver utilizzato <strong>Häsibe+</strong>. Per ulteriori supporto o domande, visita la nostra <a target="_blank"href="https://kodikas.ch/contact">pagina di supporto</a>.</p>
+
+                </div>
+
+                <div class="section-disclaimer">
+                    <a class="btn-back" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> Zurück</a>
+                </div>
+            </div>
+
+            <div id="footer">
+                <div>
+					<p><a href="disclaimer.html">Disclaimer</a>&nbsp;&nbsp;<i class="fa fa-legal"></i></p>
+					<p><a href="user-guide-de.html">Benutzerhandbuch</a>&nbsp;&nbsp;<i class="fa fa-book"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>&nbsp;&nbsp;<i class="fa fa-address-book"></i></p>
+                    <p><a target="_blank" href="https://github.com/TomiSauce/hasibe-plus">Download Source Code</a>&nbsp;&nbsp;<i class="fa fa-code"></i></p>
+                    <p><a target="_blank" href="https://kodikas.ch/other/hasibe/">Tell me More</a>&nbsp;&nbsp;<i class="fa fa-info"></i></p>
+                </div>
+                <div></div>
+            </div>
+
+		</div>
+
+<!-- Scipts -->
+<!-- Title Bar -->
+		<script src="js/title-bar.js" charset="utf-8"></script>
+
+	</body>
+</html>
