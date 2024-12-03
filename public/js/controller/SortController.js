@@ -41,6 +41,9 @@ class SortController {
                         return 0;
                     });
                     break;
+                case 'language':
+                    sorted = users.sort((a, b) => a.get('language').get('name').toLowerCase().localeCompare(b.get('language').get('name').toLowerCase()));
+                    break;
             }
         } else {
             switch (sortBy['key']) {
@@ -69,6 +72,10 @@ class SortController {
                         return 0;
                     });
                     break;
+                case 'language':
+                    sorted = users.sort((a, b) => b.get('language').get('name').toLowerCase().localeCompare(a.get('language').get('name').toLowerCase()));
+                    break;
+
             }
         }
 

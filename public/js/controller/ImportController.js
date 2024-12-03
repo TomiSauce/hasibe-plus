@@ -15,6 +15,7 @@ class ImportController {
 							let users = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]),
 								c = 0,
 								ranks = Rank.getAll(),
+								languages = Language.getAll(),
 								flagID = Flag.getAll()[0].get('id'),
 								taskID = DefaultTask.getAll()[0].get('taskID');
 
@@ -48,9 +49,26 @@ class ImportController {
 							}
 			
 							for (let user of users) {
-								
 								let u = new User(),
 									name = "";
+								
+								let isLangSet = false;
+								try {
+									for (const lang of languages) {
+										if (lang.get('name') == user[arrayKeys['lang']]) {
+											u.set('languageID', lang.get('id'));
+											isLangSet = true;
+											break;
+										}
+									}
+								} catch (error) {
+									isLangSet = false;
+								}
+
+								if (!isLangSet) {
+									u.set('languageID', 0);
+								}
+
 								try {
 									name = user[arrayKeys['name']].split(',');
 									u.set('firstName', View.escapeHtml(name[1].trim()));
@@ -59,26 +77,23 @@ class ImportController {
 									u.set('flagID', flagID);
 								} catch (e) {
 									View.error('Ungültiger Name für AdA auf Zeile: "' + (c+2) + '" ');
-									console.log(user);
-									
 									return;
 								}
 
-								let rankSet = false;
+								let isRankSet = false;
 								try {
 									for (let rank of ranks) {
 										if (rank.get('abbr') == user[arrayKeys['rank']].trim()) {
 											u.set('rankID', rank.get('id'));
-											rankSet = true;
+											isRankSet = true;
 											break;
 										};
-										
 									}
 								} catch (e) {
-									rankSet = false;
+									isRankSet = false;
 								}
 
-								if (!rankSet) {
+								if (!isRankSet) {
 									let newRank = new Rank();
 									newRank.set('abbr', user[arrayKeys['rank']]).save();
 									u.set('rankID', newRank.get('id'));

@@ -12,6 +12,7 @@ const objRelsORM = {
 	rankID: Rank,
 	taskID: Task,
 	userID: User,
+	languageID: Language
 }
 
 ORM.setStorageAdapter(new LocalStorage());
@@ -112,6 +113,30 @@ if (!Rank.count()) {
 			new Log(null, null, null, 'Rang "' + rankSeeds[key] + '" erstellt').save();
 		}
 	}
+}
+
+if (!Language.count()) {
+	let langSeeds = [
+		{name: '?', icon:'-'},
+
+		{name: 'Deutsch', icon:'de'},
+		{name: 'Französisch', icon:'fr'},
+		{name: 'Italienisch', icon:'it'},
+
+		{name: 'Tedesco', icon:'de'},
+		{name: 'Francese', icon:'fr'},
+		{name: 'Italiano', icon:'it'},
+
+		{name: 'Allemand', icon:'de'},
+		{name: 'Français', icon:'fr'},
+		{name: 'Italien', icon:'it'},
+	];
+
+	for (let lang of langSeeds) {
+		new Language(null, lang.name, lang.icon).save();
+		new Log(null, null, null, 'Sprache "' + lang.name + '" erstellt.').save();
+	}
+	
 }
 
 const config = {

@@ -56,6 +56,7 @@ class UserView extends View {
                         TaskView.generateSelectOptions(tasks, user.get('taskID')) +
                     '</select>' +
                     '<div id="user-timer-' + uid + '">' + timeRemaining + '</div>' +
+                    '<div><span class="fi fi-' + user.get('language').get('icon') + '"></div>' +
                     '<div>' +
                         '<div class="btn-simple btn-delete" onclick="UserController.delete(' + uid + ')" title="Löschen"><i class="fa-solid fa-trash-can"></i></div>' +
                         '<div class="btn-simple btn-expand" onclick="UserController.toggleUserLog(' + uid + ')" title="Gefechtsjournal Öffnen"><i id="btn-expand-' + uid + '" class="fa-solid fa-angles-down"></i></div>' +
