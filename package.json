@@ -21,20 +21,23 @@
   },
   "build": {
     "appId": "ch.kodikas.hasibe",
-    "productName": "Häsibe Plus",
+    "productName": "Hasibe+",
     "files": [
       "**/*",
       "!dist/**/*",
+      "!build/**/*",
       "!.gitignore"
     ],
     "linux": {
       "maintainer": "Luca Tomasi luca.tomasi@milweb.ch",
       "icon": "public/assets/img/logo-icon-256x256.png",
       "category": "Utility",
+      "executableName": "hasibe-plus",
       "target": [
         "deb"
       ]
     },
+    "afterPack": "build/post-build.js",
     "mac": {
       "icon": "public/assets/img/favicon.icns",
       "category": "public.app-category.utilities",

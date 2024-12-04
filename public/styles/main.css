@@ -100,17 +100,15 @@ h5 {
 	justify-content: space-between;
 }
 
-input[type="button"],
-.btn-search {
-	padding: 7px;
+input[type="button"] {
+	padding: §7px;
 	background-color: var(--accent-v);
 	color: var(--white-main);
 	border: none;
 	outline: none;
 }
 
-input[type="button"]:hover,
-.btn-search:hover {
+input[type="button"]:hover {
 	background-color: var(--shadow-blue);
 	cursor: pointer;
 }
@@ -227,8 +225,7 @@ input[type="button"]:hover,
 	display: table-cell;
 }
 
-.input-bar > div > *,
-.btn-search {
+.input-bar > div > * {
 	width: 100%;
 	height: 34px;
 	padding-left: 8px;
@@ -236,10 +233,6 @@ input[type="button"]:hover,
 	outline: none;
 	line-height: 20px;
 	border-radius: 1px;
-}
-
-.btn-search {
-	width: fit-content;
 }
 
 .input-bar > div > *:focus {
