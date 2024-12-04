@@ -76,7 +76,10 @@ class UserController {
 		for (var user of users) {
 			let timeRemaining = this.getTimeLeft(user);
 			user.set('timeRemaining', timeRemaining);
-			if (timeRemaining < 0) View.warn('AdA "' + user.get('firstName') + ' ' + user.get('lastName') + '" ist zu spät');
+			if (timeRemaining < 0) {
+				View.warn('AdA "' + user.get('firstName') + ' ' + user.get('lastName') + '" ist zu spät');
+				user.set('flagID', 2).save();
+			}
 		}
 
 		// Sort users

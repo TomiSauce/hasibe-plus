@@ -41,7 +41,7 @@ class UserView extends View {
 
     static generateRow(user, ranks, tasks, flags) {
         let uid = user.get('id');
-        let timeRemaining = (user.get('timeRemaining') == null || user.get('timeRemaining') < 0) ? '---' : View.getReadableMinSec(user.get('timeRemaining'));
+        let timeRemaining = (user.get('timeRemaining') == null) ? '---' : View.getReadableMinSec(user.get('timeRemaining'));
         return  '<div' + (user.get('timeRemaining') < 0 ? ' class="user-list-late-warning"' : '') + '>' +
                     '<select id="inp-update-rank-' + uid +'" onchange="UserController.updateRank(' + "'" + uid + "'"+')">'+
                         RankView.generateSelectOptions(ranks, user.get('rankID')) +

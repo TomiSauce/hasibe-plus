@@ -65,8 +65,12 @@ class View {
 	}
 
 	static getReadableMinSec(time) {
-		let t = new Date(time);
-		return this.fTime(t.getMinutes()) + ':' + this.fTime(t.getSeconds());
+		let isNegative = time < 0;
+		let absTime = Math.abs(time);
+		let minutes = Math.floor(absTime / 60000); // Convert milliseconds to minutes
+		let seconds = Math.floor((absTime % 60000) / 1000); // Remaining seconds
+		let readableTime = `${this.fTime(minutes)}:${this.fTime(seconds)}`;
+		return isNegative ? `-${readableTime}` : readableTime;
 	}
 
 	static escapeHtml(input) {
