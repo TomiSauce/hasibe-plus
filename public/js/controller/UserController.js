@@ -24,7 +24,8 @@ class UserController {
 				inp.firstName,
 				inp.driver,
 				parseInt(task.get('id')),
-				Flag.getAll()[0].get('id') 
+				Flag.getAll()[0].get('id'),
+				Language.getAll()[0].get('id')
 			);
 			if (u.save() !== false) {
 				UserController.setTimeStarted(u);
