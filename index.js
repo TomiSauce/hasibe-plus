@@ -7,7 +7,7 @@ const { app, BrowserWindow, session , ipcMain, dialog, shell , powerMonitor, sys
 const fs = require('fs');
 
 const conf = {
-    dev: true,
+    dev: false,
     defaultFileSavePath: `${app.getPath('desktop')}/`
 }
 

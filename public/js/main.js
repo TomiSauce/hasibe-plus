@@ -139,25 +139,19 @@ if (!Language.count()) {
 	
 }
 
-const config = {
-	sound: true,
-	video: false
-};
+if (!Config.count()) {
+	new Config().save();
+}
 
 $(document).ready(() => {
 	UserController.refreshCreateForm();
 	UserController.refreshTable();
 	TaskController.refreshSetDefault();
 	DataController.refresh(true);
+	ConfigController.applyConfig()
 
-	$('#btn-volume-switch').on('click', () => {
-		if (config.sound) {
-			config.sound = false;
-			$('#volume-switch-icon').addClass('fa-volume-xmark').removeClass('fa-volume-high');
-		} else {
-			config.sound = true;
-			$('#volume-switch-icon').removeClass('fa-volume-xmark').addClass('fa-volume-high');
-		}
+	$('#btn-toggle-sound').on('click', () => {
+		ConfigController.toggleSound();
 	});
 
 	let sort = JSON.parse(localStorage.getItem('sortBy'));
@@ -182,19 +176,7 @@ $(document).ready(() => {
 	});
 
 	$('#btn-toggle-cam-display').on('click', () => {
-		if (config.video) {
-			console.log('hide');
-			
-			$('#btn-toggle-cam-display').text('Kamera einblenden');
-			$('#camera-canvas').hide();
-			config.video = false;
-		} else {
-			console.log('show');
-			
-			$('#btn-toggle-cam-display').text('Kamera ausblenden');
-			$('#camera-canvas').show();
-			config.video = true;
-		}
+		ConfigController.toggleVideo();
 	});
 
 	setInterval(function() {

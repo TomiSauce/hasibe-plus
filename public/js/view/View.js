@@ -17,7 +17,7 @@ class View {
 	}
 
 	static error(msg, attachTo=null) {
-		if (config.sound) new Audio('./assets/audio/error.wav').play();
+		if (Config.getAll()[0].get('sound')) new Audio('./assets/audio/error.wav').play();
 		if (attachTo) {
 			this.#attachTo(msg, 'error', attachTo);
 		} else {
@@ -26,7 +26,7 @@ class View {
 	}
 
 	static success(msg, attachTo=null) {
-		if (config.sound) new Audio('./assets/audio/success.wav').play();
+		if (Config.getAll()[0].get('sound')) new Audio('./assets/audio/success.wav').play();
 		if (attachTo) {
 			this.#attachTo(msg, 'success', attachTo);
 		} else {
@@ -35,7 +35,7 @@ class View {
 	}
 
 	static warn(msg, attachTo=null) {
-		if (config.sound) new Audio('./assets/audio/notification.ogg').play();
+		if (Config.getAll()[0].get('sound')) new Audio('./assets/audio/notification.ogg').play();
 		if (attachTo) {
 			this.#attachTo(msg, 'warn', attachTo);
 		} else {
@@ -44,7 +44,7 @@ class View {
 	}
 
 	static playSound(fileName) {
-		if (config.sound) new Audio('./assets/audio/' + fileName).play();
+		if (Config.getAll()[0].get('sound')) new Audio('./assets/audio/' + fileName).play();
 	}
 
 	static #attachTo(msg, status, attachTo) {

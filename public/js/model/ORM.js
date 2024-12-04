@@ -27,7 +27,7 @@ class ORM {
 		if (objRelsORM[key] !== undefined) {
 			this.set(key.replace('ID', ''), new objRelsORM[key](id));
 		} else {
-			console.error('Class for '+key+' in var objRelsORM was not defined. Add a Classto objRelsORM = {'+key+': ClassName}');
+			console.error('Class for '+key+' in var objRelsORM was not defined. Add a Class to objRelsORM = {'+key+': ClassName}');
 		}
 	}
 

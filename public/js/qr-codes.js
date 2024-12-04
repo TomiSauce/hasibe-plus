@@ -9,6 +9,7 @@ const objRelsORM = {
 	rankID: Rank,
 	taskID: Task,
 	userID: User,
+	languageID: Language
 }
 
 ORM.setStorageAdapter(new LocalStorage());

@@ -5,8 +5,7 @@ Licensed under the MIT License. See LICENSE file for details.
 
 <!--
 TODOs:
-O export => import from Milo (import icon) | (export icon) export as save file
-O wenn zu spät > qr zeit nicht löschen (flag -> unpünklich)
+O export => import from Milo or save file (import icon) | (export icon) export as save file
 O ordered by amount of tasks (time spent on different tasks)
 O Fix build script
 	O Linux
@@ -52,7 +51,7 @@ O Fix build script
 				<div class="nav-outer">
 					<a target="_blank" href="https://kodikas.ch">Kódikas.ch</a>
 					<a target="_blank" href="https://kodikas.ch/contact">Kontakt</a>
-					<div id="btn-volume-switch"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
+					<div id="btn-toggle-sound"><i id="volume-switch-icon" class="fa-solid fa-volume-high"></i></div>
 				</div>
 			</div>
 
@@ -189,6 +188,7 @@ O Fix build script
 		<script src="js/model/Log.js" charset="utf-8"></script>
 		<script src="js/model/SearchID.js" charset="utf-8"></script>
 		<script src="js/model/Language.js" charset="utf-8"></script>
+		<script src="js/model/Config.js" charset="utf-8"></script>
 
 <!-- View Classes -->
 		<script src="js/view/FlagView.js" charset="utf-8"></script>
@@ -207,6 +207,7 @@ O Fix build script
 		<script src="js/controller/ImportController.js" charset="utf-8"></script>
 		<script src="js/controller/SortController.js" charset="utf-8"></script>
 		<script src="js/controller/ScannerController.js" charset="utf-8"></script>
+		<script src="js/controller/ConfigController.js" charset="utf-8"></script>
 
 <!-- Main JS File -->
 		<script src="js/main.js" charset="utf-8"></script>

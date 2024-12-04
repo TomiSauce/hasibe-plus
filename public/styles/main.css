@@ -101,7 +101,7 @@ h5 {
 }
 
 input[type="button"] {
-	padding: §7px;
+	padding: 7px;
 	background-color: var(--accent-v);
 	color: var(--white-main);
 	border: none;
@@ -169,14 +169,14 @@ input[type="button"]:hover {
 	align-items: flex-end;
 }
 
-#btn-volume-switch {
+#btn-toggle-sound {
 	width: 30pt;
 	font-size: 30pt;
 	cursor: pointer;
 	color: var(--white-main);
 }
 
-#btn-volume-switch:hover {
+#btn-toggle-sound:hover {
 	color: var(--gray-l-main);
 }
 
